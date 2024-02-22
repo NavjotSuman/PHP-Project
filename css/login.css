@@ -1,0 +1,23 @@
+.form__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login__form {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    padding: 1rem 1.5rem;
+    background-color: rgb(213, 225, 225);
+
+}
+
+.login__form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.new_acc {
+    display: flex;
+}
