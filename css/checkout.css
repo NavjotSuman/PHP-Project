@@ -1,0 +1,109 @@
+body {
+    background: rgba(252, 251, 249, 0.68);
+    color: #4d4f56;
+    /* font-weight: 400; */
+    font-family: "Source Sans 3", sans-serif;
+}
+
+.cart-order-box {
+    margin: 2.3rem 0;
+}
+
+
+.cart-order-box .container {
+    border: 1px solid #eaebeb;
+    background: #fafaf8;
+    border-radius: 2px;
+    position: relative;
+}
+
+.cart-order-box .container form {
+    padding: 1.2rem;
+}
+
+.bottom-border {
+    border-bottom: 1px solid #eaebeb;
+}
+
+
+.cart-summary {
+    padding: .3rem 0 .7rem 0.19rem;
+}
+
+.cart-subtotal,
+.dilivery-charges,
+.total {
+    padding: 1rem 1.2rem;
+    font-size: 1.13rem;
+}
+
+.total .toal__price {
+    margin-bottom: 1.7rem;
+}
+
+.total .toal__price h2 {
+    font-size: 1.23rem;
+}
+
+.total .delivery-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.delivery-methods .online-payment,
+.delivery-methods .cash-on-payment {
+    display: flex;
+    gap: 6px;
+}
+
+.delivery-methods .online-payment label {
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+    cursor: not-allowed;
+}
+
+.delivery-methods .online-payment label img {
+    width: 6rem;
+    cursor: not-allowed;
+}
+
+
+.cart-summary h1 {
+    font-weight: 400;
+    font-size: 1.87rem;
+    color: #25282b;
+}
+
+.display-grid-cart-summary {
+    display: grid;
+    grid-template-columns: 79% 21%;
+}
+
+.place-order-btn {
+    padding: 1.5rem 1rem 0;
+}
+
+.place-order-btn button {
+    background-color: #449d44;
+    border: 1px solid #419641;
+    width: 100%;
+    border-radius: 3px;
+    color: white;
+    /* font-family: "Source Sans 3", sans-serif; */
+    font-weight: 400;
+    font-size: 1rem;
+    padding: .7rem;
+    cursor: pointer;
+}
+
+.place-order-btn button:hover {
+    background-color: #207020;
+    box-shadow: 0 0 .15rem rgba(70, 184, 17, 0.105)
+}
+
+.radio-input {
+    width: 18px;
+    accent-color: #449d44;
+}

@@ -1,15 +1,15 @@
 
-// ============================================ displaying the cart from the ============================================
+// ============================================ displaying the cart from the database ============================================
 let DishTotalPrice = 0.00;
 carted_dishes = document.querySelector(".carted_dishes");
 let show_cart = () => {
+    DishTotalPrice = 0.00;
     carted_dishes.innerHTML = "";
     fetch('show-cart.php')
         .then((Response) => {
             return Response.json();
         })
         .then((data) => {
-            DishTotalPrice = 0.00;
             for (let i = 0; i < data.length; i++) {
                 var cartName = data[i].cart_name;
                 var cartPrice = data[i].cart_price;
@@ -33,6 +33,39 @@ let show_cart = () => {
         })
 
 
+    // ========================================================================= Using dustbin for delete thr carted item from te list =========================================================.
+
+    setTimeout(() => {
+        let delete_item_row = document.getElementsByClassName("title-row")
+
+        Array.from(delete_item_row).forEach((value) => {
+            value.lastElementChild.addEventListener('click', () => {
+                let delete_item_name = value.firstElementChild.innerHTML;
+
+
+                let deleteItemNameJson = {
+                    "delete_item": `${delete_item_name}`,
+                }
+                fetch('delete_cart.php', {
+                    method: "POST",
+                    body: JSON.stringify(deleteItemNameJson),
+                    headers: {
+                        "Content-type": "application/json",
+                    }
+                }).then((Response) => {
+                    return (Response.json());
+                }).then((result) => {
+                    if (result.deleted == 'success') {
+                        console.log(`Item ${delete_item_name} Deleted Successfully`)
+                    }
+                    show_cart();
+                })
+            })
+        })
+    }, 50);
+
+    // ========================== displaying the total price of the carted items... ===============================
+
     setTimeout(() => {
         let total_price = () => {
             // dishPrice = document.getElementsByClassName("dish_price");
@@ -42,9 +75,48 @@ let show_cart = () => {
             //     DishTotalPrice += value.firstElementChild.innerHTML;
             // })
             cartTotal.firstElementChild.innerHTML = DishTotalPrice;
+
+            // console.log(typeof DishTotalPrice, DishTotalPrice)
+
+            var CheckOutButton = document.querySelector(".cart_total__details-buy_btn").firstElementChild;
+            if (DishTotalPrice == 0) {
+                // CheckOutButton.style.
+                // console.log(CheckOutButton)
+                CheckOutButton.style.backgroundColor = "#da625e";
+                CheckOutButton.style.borderColor = "#da625e";
+
+                CheckOutButton.addEventListener('mouseenter', () => {
+                    CheckOutButton.style.backgroundColor = "#da625e";
+                    CheckOutButton.style.cursor = "context-menu";
+                })
+                CheckOutButton.addEventListener('mouseleave', () => {
+                    CheckOutButton.style.backgroundColor = "#da625e";
+                })
+            }
+            else {
+                CheckOutButton.style.cursor = "pointer";
+                CheckOutButton.style.backgroundColor = "#449d44";
+                CheckOutButton.style.borderColor = "#419641";
+
+                CheckOutButton.addEventListener('mouseenter', () => {
+                    CheckOutButton.style.backgroundColor = "#207020";
+                })
+
+                CheckOutButton.addEventListener('mouseleave', () => {
+                    CheckOutButton.style.backgroundColor = "#449d44";
+                })
+
+            }
+
+            // console.log(typeof DishTotalPrice, DishTotalPrice);
         }
         total_price();
     }, 100);
+
+
+
+
+
 }
 show_cart();
 
@@ -107,9 +179,13 @@ Array.from(addCart).forEach((value) => {
         });
         setTimeout(() => {
             show_cart();
-        }, 200);
+        }, 100);
     })
 })
+
+
+
+
 
 
 

@@ -173,6 +173,7 @@ body {
 }
 
 .cart_total__details-buy_btn .btn {
+    transition: all 100ms ease;
     border-color: #da625e;
     background-color: #da625e;
     color: #fff;
