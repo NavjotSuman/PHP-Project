@@ -5,8 +5,8 @@
 require('connection/_dbconnect.php');
 session_start();
 // $_SESSION['user_id'] = 'true';
-session_unset();
-session_destroy();
+// session_unset();
+// session_destroy();
 ?>
 
 <head>
@@ -15,6 +15,11 @@ session_destroy();
     <link rel="icon" href="images/icon.png" sizes="1400*1400">
     <title>foody - Navjot Project</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .allSelected {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
@@ -102,7 +107,7 @@ session_destroy();
                         $img = $row['img'];
 
 
-                        echo '<article>
+                        echo '<article class="all-popular-dishes__article">
                     <div class="bottom__popular-dishes">
                         <div class="dish-img" data-img_src="' . $img . '">
                         </div>
@@ -250,7 +255,9 @@ session_destroy();
                     <?php
                     $result = mysqli_query($conn, "SELECT * FROM `restaurant`");
                     while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<article class="select-article ' . $row['c_id'] . '">
+                        // <button onclick = "window.location.href='www.linktothepage.com';"
+
+                        echo '<article onclick = "window.location.href = \'dishes.php?Res_id=' . $row['rs_id'] . '\'" class="select-article ' . $row['c_id'] . '">
                             <div class="res-img">
                                 <img src="admin/Res_img/' . $row['image'] . '" alt="">
                             </div>

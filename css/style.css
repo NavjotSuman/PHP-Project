@@ -117,7 +117,7 @@ nav {
 header {
     position: relative;
     top: 4.6rem;
-    height: 59vh;
+    height: 25rem;
     overflow: hidden;
     margin-bottom: 2rem;
     background-color: rgba(7, 6, 29, 0.37);
@@ -240,6 +240,16 @@ header::before {
     width: 25vw;
 }
 
+.popular-dishes article:hover .dish-info h5 a {
+    color: #5c4ac7;
+}
+
+.popular-dishes article:hover .dish-info {
+    background: transparent;
+    border-color: rgb(229, 225, 233);
+
+}
+
 .header__popular-dishes {
     display: flex;
     flex-direction: column;
@@ -266,6 +276,7 @@ header::before {
 .bottom__popular-dishes {
     margin-top: 1.6rem;
     border: 1px solid transparent;
+    overflow: hidden;
     /* border-color: red; */
 }
 
@@ -273,6 +284,7 @@ header::before {
     position: relative;
     width: 100%;
     height: 210px;
+    overflow: hidden;
 
     /* will be fullfilled using javascript */
     /* background: url('../admin/Res_img/dishes/'); */
@@ -309,6 +321,11 @@ header::before {
     font-family: "Source Sans 3", sans-serif;
     font-size: 22px;
     padding-bottom: .9rem;
+    font-weight: 600;
+}
+
+.dish-info h5 a {
+    color: #25282b;
 }
 
 .dish__description p {
@@ -332,6 +349,15 @@ header::before {
     border: 2px dashed #5c4ac7;
     background-color: transparent;
     color: #5c4ac7;
+    transition: all 300ms ease;
+    /* transform: all 800ms ease; */
+    border-radius: 5px;
+}
+
+.price-btn a:hover {
+    color: white;
+    background-color: #5c4ac7;
+    /* box-shadow: 0 0 1rem rgba(89, 70, 191, .3) */
 }
 
 .bottom__popular-dishes {
@@ -544,7 +570,7 @@ header::before {
     padding: 100px 0 30px;
     position: relative;
     height: max-content;
-
+    overflow: hidden;
 }
 
 .fe__res-upper {
@@ -610,8 +636,10 @@ header::before {
     margin-bottom: .9rem;
     animation: article-animation 400ms linear forwards;
     transform: all 300ms ease;
+    cursor: pointer;
 }
-.res__list article:hover{
+
+.res__list article:hover {
     background: white;
     border: 1px solid rgb(221, 199, 199);
 }
@@ -657,8 +685,8 @@ footer {
     box-shadow: 0 -3px 1.1rem rgba(11, 11, 11, 0.3);
     /* position: relative;
     top: 100vh; */
-    margin-top: auto;
-    /* margin: 4rem 0 0; */
+    /* margin-top: auto; */
+    margin: 2rem 0 0;
 }
 
 .divider {
@@ -1173,10 +1201,11 @@ footer {
     }
 
     .res__list article {
-        flex-direction: row;
+        /* flex-direction: row; */
         border-radius: 0;
         gap: 2rem;
         /* text-align: left; */
+        flex-wrap: wrap;
     }
 
     .res-img img {

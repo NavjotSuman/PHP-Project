@@ -1,3 +1,6 @@
 /* for insert into users tabel */
 
 INSERT INTO `users` (`u_id`, `username`, `f_name`, `l_name`, `email`, `phone`, `password`, `address`, `status`, `date`) VALUES ('1', 'navjot', 'Navjot', 'Suman', 'navjot@gmail.com', '+919855047862', '123', 'sangha jagir, punjab', '1', current_timestamp());
+
+ /* searching using res_id */
+ SELECT * FROM `restaurant` WHERE `rs_id` = 2

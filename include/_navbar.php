@@ -5,7 +5,7 @@
         </a>
         <ul class="nav__menu">
             <li><a href="index.php">Home</a></li>
-            <li><a href="#">Restaurants</a></li>
+            <li><a href="restaurant.php">Restaurants</a></li>
             <!-- <li><a href="course.html">Login</a></li>
             <li><a href="registration.php">Register</a></li> -->
             <?php

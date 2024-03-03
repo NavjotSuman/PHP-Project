@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+/* .open-sans-<uniquifier> {
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+} */
+
+
+body {
+    background: rgba(252, 251, 249, 0.68)
+}
+
+
+.top_restaurant {
+    background-color: rgb(0, 0, 0);
+    backdrop-filter: opacity(.1)
+}
+
+.res_details_section {
+    height: 22rem;
+    min-height: max-content;
+
+}
+
+.res_details_section::before {
+    background: url(../images/img/restrrr.png);
+    content: " ";
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0;
+
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: .94;
+}
+
+.res_dishes_header,
+.res_dishes_header article {
+    height: 100%;
+    width: 100%;
+}
+
+.res_dishes_header article {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+
+}
+
+.res_dishes_header article .res_img {
+    width: 17.81rem;
+}
+
+.res_dishes_header article .res_img img {
+    width: 100%;
+    border-radius: 2.3px;
+    border: 10px solid white;
+}
+
+
+.res_dishes_header article .res_details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-family: "Source Sans 3", sans-serif;
+}
+
+
+.res_dishes_header article .res_details h2 {
+    font-size: 1.85rem;
+    font-weight: 600;
+}
+
+.res_dishes_header article .res_details p {
+    font-weight: 350;
+}
+
+
+
+
+/* ================================================== DISHES MENU ============================================================= */
+.dish_menu-cart {
+    position: relative;
+    top: 7.25rem;
+    border-top: 1px solid #e6e6e6;
+    margin-bottom: 3rem;
+}
+
+.dish_menu-cart .container {
+    display: grid;
+    width: 87%;
+    grid-template-columns: 25% 72%;
+    gap: 3%;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+
+}
+
+.dishes__menu-left .dish__img-left {
+    width: 100%;
+    height: 100%;
+    max-height: 8rem;
+    overflow: hidden;
+
+}
+
+.dishes__menu-left .dish__img-left img {
+    width: 100%;
+    height: auto;
+}
+
+
+
+/* =dish_menu-cart-left= */
+.dish_menu-cart-left {
+    color: #4d4f56;
+    border: 1px solid #eaebeb;
+    height: max-content;
+}
+
+.cart__heading {
+    border-bottom: 1px solid #eaebeb;
+    background-color: #fafafa;
+    padding: 15px;
+
+}
+
+.cart__heading h2 {
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: black;
+
+}
+
+.dish_menu-cart-left .carted_dishes {
+    padding: 15px;
+    background-color: white;
+}
+
+.dish_menu-cart-left .cart_total__details {
+    padding: 22px 15px;
+    border-top: 1px solid #eaebeb;
+    background-color: #fafafa;
+    text-align: center;
+    flex-direction: column;
+    gap: .6rem;
+}
+
+.cart_total__details .cart_total__details-heading h2 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+.cart_total__details .cart_total__details-delivery_system h3 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.cart_total__details .cart_total__details-price {
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: black;
+}
+
+.cart_total__details-buy_btn .btn {
+    border-color: #da625e;
+    background-color: #da625e;
+    color: #fff;
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 400;
+    font-size: 1.4rem;
+    cursor: context-menu;
+}
+
+
+/* after add some items for cart */
+/* .cart_total__details-buy_btn .btn:hover {
+    border-color: #c1332e;
+    background-color: #c1332e;
+    color: #fff;
+    box-shadow: 0 0 1rem rgba(192, 29, 29, .1);
+} */
+
+.cart_total__details-buy_btn {
+    margin-top: .9rem;
+}
+
+
+/* =Dish menu cart heading= */
+.dish_menu-cart-right {
+    border: 1px solid #eaebeb;
+    background-color: #fafafa;
+    height: max-content;
+}
+
+.dish_menu-cart-right__heading {
+    border-bottom: 1px solid #eaebeb;
+    display: flex;
+    padding: 15px;
+}
+
+.dish_menu-cart-right__heading h2 {
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: black;
+}
+
+.dish_menu-cart-right .dish_menu-cart-right__all-dishes {
+    padding: 0 15px;
+    position: relative;
+}
+
+
+.dish_menu-cart-right__all-dishes article {
+    display: grid;
+    grid-template-columns: 83% 15%;
+    gap: 2%;
+    margin-top: 1rem;
+    padding: 1rem 0;
+}
+
+.dishes__menu-left {
+    display: grid;
+    grid-template-columns: 19% 79%;
+    gap: 2%;
+}
+
+.dishes__menu-left .dish__details h2 {
+    /* color: #25282b; */
+    color: black;
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 600;
+    font-size: 1.16rem;
+    margin-bottom: .32rem;
+}
+
+.dishes__menu-left .dish__details p {
+    color: #25282b;
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+
+/* =right Side= */
+.dishes__menu-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.dishes__menu-right-price {
+    margin-top: .18rem;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 1.4rem;
+
+    position: relative;
+}
+
+.dishes__menu_counting input {
+    width: 3.3rem;
+    height: 2.2rem;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.add-to-card-btn {
+    margin-top: .6rem;
+    padding: 10px 16px;
+    border-color: #5c4ac7;
+    background-color: #5c4ac7;
+    border-radius: 3px;
+    width: 7.4rem;
+    text-align: center;
+    margin-right: .37rem;
+    cursor: pointer;
+}
+
+.add-to-card-btn a {
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 400;
+    color: white;
+}
+
+.dishes__menu-right-price h2 {
+    font-size: 1.37rem;
+}
+
+
+.space-between-articles {
+    height: 1.16rem;
+}
+
+
+.title-row {
+    display: grid;
+    grid-template-columns: 94% 4%;
+    align-items: center;
+}
+
+.title-row a {
+    height: 1rem;
+}
+
+.title-row a img {
+    width: 1rem;
+}
+
+.dish_price-quantity {
+    background-color: #eaebeb;
+    display: grid;
+    grid-template-columns: 85% 15%;
+    padding: 8px;
+    border: 1px solid #eaebeb;
+    font-size: 1rem;
+    color: #55595c;
+    margin-bottom: .9rem;
+}
