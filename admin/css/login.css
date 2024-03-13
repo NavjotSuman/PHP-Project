@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+body {
+    background-color: #f5f5f5;
+    font-family: "Ubuntu", sans-serif;
+}
+
+
+
+/* Login Container */
+.login_container {
+    width: 100%;
+    height: 100vh;
+}
+
+/* Container */
+.login_container .container {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3.8rem 0;
+    gap: 1.3rem;
+position: relative;
+}
+
+/* login Heading */
+.login_heading h1 {
+    /* color: #1f1f1f; */
+    color: #5744c4;
+    font-size: 3rem;
+    font-weight: 400;
+}
+
+
+/* login Sections */
+.container .login_section {
+    border: 1.2px solid #5744c4;
+    padding: 2rem 0 2.3rem;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+
+
+/* thumbnail */
+.container .thumbnail {
+    display: grid;
+    padding-bottom: 2.6rem;
+}
+
+.container .thumbnail .thumbnail_circle {
+    background-color: #5c4ac7;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    place-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .thumbnail .thumbnail_circle img {
+    width: 6.5rem;
+
+}
+
+/* form */
+.form {
+    padding: 0 1.5rem;
+    width: 23rem;
+}
+
+.form form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.form form input {
+    padding: 1rem;
+    background-color: #f0f0f0;
+    border-radius: 3px;
+    border: 1px solid #e8e6e6;
+    font-size: 1rem;
+    color: #5a5a5a;
+}
+
+.form form input:focus {
+    border-color: #bbb3e9;
+}
+
+.login-btn {
+    background-color: #7360dd;
+    border: 1px solid #5c4ac7;
+    color: white;
+    padding: 1rem;
+    border-radius: 2px;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 400ms ease;
+}
+
+.login-btn:hover {
+    background-color: #5c4ac7;
+}

@@ -62,7 +62,7 @@
 }
 
 .res_details_section {
-    height: 12rem;
+    height: 16rem;
     /* background-color: red; */
     /* box-shadow: inset 0 0 8rem rgba(14, 205, 65, 0.4); */
 }
@@ -71,7 +71,7 @@
     background: url(../images/img/restrrr.png);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position-y: -154px ;
+    background-position: 0;
     content: " ";
     position: absolute;
     top: 0;

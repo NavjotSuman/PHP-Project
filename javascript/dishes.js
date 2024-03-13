@@ -1,7 +1,7 @@
+let DishTotalPrice = 0.00;
+let carted_dishes = document.querySelector(".carted_dishes");
 
 // ============================================ displaying the cart from the database ============================================
-let DishTotalPrice = 0.00;
-carted_dishes = document.querySelector(".carted_dishes");
 let show_cart = () => {
     DishTotalPrice = 0.00;
     carted_dishes.innerHTML = "";
@@ -33,7 +33,7 @@ let show_cart = () => {
         })
 
 
-    // ========================================================================= Using dustbin for delete thr carted item from te list =========================================================.
+    // ========================================================================= Using dustbin for delete the carted item from te list =========================================================.
 
     setTimeout(() => {
         let delete_item_row = document.getElementsByClassName("title-row")
@@ -76,6 +76,7 @@ let show_cart = () => {
             // })
             cartTotal.firstElementChild.innerHTML = DishTotalPrice;
 
+            localStorage.setItem("dishTotalPrice", DishTotalPrice);
             // console.log(typeof DishTotalPrice, DishTotalPrice)
 
             var CheckOutButton = document.querySelector(".cart_total__details-buy_btn").firstElementChild;
@@ -92,14 +93,20 @@ let show_cart = () => {
                 CheckOutButton.addEventListener('mouseleave', () => {
                     CheckOutButton.style.backgroundColor = "#da625e";
                 })
+
+                if (CheckOutButton.hasAttribute("href")) {
+                    CheckOutButton.removeAttribute("href");
+                }
             }
             else {
-                CheckOutButton.style.cursor = "pointer";
                 CheckOutButton.style.backgroundColor = "#449d44";
                 CheckOutButton.style.borderColor = "#419641";
 
+                CheckOutButton.setAttribute("href", "checkout.php")
+
                 CheckOutButton.addEventListener('mouseenter', () => {
                     CheckOutButton.style.backgroundColor = "#207020";
+                    CheckOutButton.style.cursor = "pointer";
                 })
 
                 CheckOutButton.addEventListener('mouseleave', () => {

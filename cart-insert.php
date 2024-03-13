@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+ 
 include 'connection/_dbconnect.php';
 
 // get the content from javscript file
