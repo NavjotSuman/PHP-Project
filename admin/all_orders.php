@@ -12,6 +12,7 @@ require '../connection/_dbconnect.php';
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/all_users.css">
+    <link rel="stylesheet" href="css/all_order.css">
 
     <!-- open sans font-family -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,7 +47,7 @@ require '../connection/_dbconnect.php';
                                     <a class="flex-anchor"><img class="aside-img" src="images/icons/box-archive-solid.png" alt="" srcset=""><span>Restaurant</span><img src="images/icons/greater-than-solid.png" class="arraw-img" alt="" srcset="">
                                     </a>
                                     <ul hidden class="hidden-div">
-                                        <li><a><span>All Restaurant</span></a></li>
+                                    <li><a href="all_restaurant.php"><span>All Restaurant</span></a></li>
                                         <li><a><span>Add Category</span></a></li>
                                         <li><a><span>Add Restaurant</span></a></li>
                                     </ul>
@@ -125,54 +126,72 @@ require '../connection/_dbconnect.php';
     </div>
 
 
-    <div class="update_user-modal">
+    <!-- modal for display the order details to the user -->
+    <div class="update_order-modal">
         <div class="modal__container">
             <div class="modal-start">
                 <div class="modal-heading">
-                    <h2>Update User</h2>
+                    <h2>UPDATE ORDER</h2>
                 </div>
-                <form id="modal-form" action="" method="post">
 
-                    <div class="username">
-                        <label for="username">Username :</label>
-                        <input type="text" name="username" id="username" placeholder="Username">
-                    </div>
+                <div class="order_update-table">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><strong>Username: </strong></td>
+                                <td>
+                                    <center id="username">ns</center>
+                                </td>
+                                <td style="width: 35%;">
+                                    <center><a class="order-modal-btn update-order-status">Update Order Status</a></center>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Title: </strong></td>
+                                <td>
+                                    <center id="title">Yorkshire Lamb Patties</center>
+                                </td>
+                                <td style="width: 35%;">
+                                    <center><a class="order-modal-btn view-user-details">View User Details</a></center>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Quantity: </strong></td>
+                                <td>
+                                    <center id="quantity">1</center>
+                                </td>
+                                <td style="width: 35%;">
+                                    <center><a class="order-modal-btn order-modal-close">EXIT</a></center>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Price: </strong></td>
+                                <td>
+                                    <center id="price">$14.00</center>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Address</strong></td>
+                                <td>
+                                    <center id="address">ow</center>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Date: </strong></td>
+                                <td>
+                                    <center id="date">2024-03-12 16:09:32</center>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Status: </strong></td>
+                                <td>
+                                    <center id="status">Dispatch</center>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                    <div class="first_name">
-                        <label for="f_name">First Name :</label>
-                        <input type="text" name="fname" id="f_name" placeholder="First Name">
-                    </div>
-
-                    <div class="last_name">
-                        <label for="l_name">Last Name :</label>
-                        <input type="text" name="lname" id="l_name" placeholder="Last Name">
-                    </div>
-
-                    <div class="email">
-                        <label for="email">Email :</label>
-                        <input type="text" name="lname" id="email" placeholder="Email">
-                    </div>
-
-                    <div class="phone">
-                        <label for="phone">Phone :</label>
-                        <input type="text" name="phone" id="phone" placeholder="Phone Number">
-                    </div>
-
-                    <div class="address">
-                        <label for="Address">Address :</label>
-                        <input type="text" name="Address" id="Address" placeholder="Address">
-                    </div>
-
-                    <div class="reg-date">
-                        <label for="doj">Reg-Date :</label>
-                        <input type="text" name="doj" id="doj" placeholder="Register Date">
-                    </div>
-
-                    <div class="modal-buttons" style="display: flex;">
-                        <a class="cancle-btn">CLOSE</a>
-                        <a class="submit-btn">UPDATE</a>
-                    </div>
-                </form>
             </div>
         </div>
     </div>

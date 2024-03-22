@@ -47,7 +47,7 @@ require '../connection/_dbconnect.php';
                                     <a class="flex-anchor"><img class="aside-img" src="images/icons/box-archive-solid.png" alt="" srcset=""><span>Restaurant</span><img src="images/icons/greater-than-solid.png" class="arraw-img" alt="" srcset="">
                                     </a>
                                     <ul hidden class="hidden-div">
-                                        <li><a><span>All Restaurant</span></a></li>
+                                    <li><a href="all_restaurant.php"><span>All Restaurant</span></a></li>
                                         <li><a><span>Add Category</span></a></li>
                                         <li><a><span>Add Restaurant</span></a></li>
                                     </ul>

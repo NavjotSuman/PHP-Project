@@ -12,7 +12,8 @@ require '../connection/_dbconnect.php';
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/all_users.css">
-    <link rel="stylesheet" href="css/all_user-modal.css">
+    <!-- <link rel="stylesheet" href="css/all_user-modal.css"> -->
+    <link rel="stylesheet" href="css/all_restaurant.css">
 
     <!-- open sans font-family -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,7 +48,7 @@ require '../connection/_dbconnect.php';
                                     <a class="flex-anchor"><img class="aside-img" src="images/icons/box-archive-solid.png" alt="" srcset=""><span>Restaurant</span><img src="images/icons/greater-than-solid.png" class="arraw-img" alt="" srcset="">
                                     </a>
                                     <ul hidden class="hidden-div">
-                                    <li><a href="all_restaurant.php"><span>All Restaurant</span></a></li>
+                                        <li><a href="all_restaurant.php"><span>All Restaurant</span></a></li>
                                         <li><a><span>Add Category</span></a></li>
                                         <li><a><span>Add Restaurant</span></a></li>
                                     </ul>
@@ -78,42 +79,54 @@ require '../connection/_dbconnect.php';
                     <div class="admin__dashboard-container">
 
                         <div class="dashboard__header">
-                            <h4>All Users</h4>
+                            <h4>All Restaurant</h4>
                         </div>
 
 
                         <!-- first row in admin dashboard -->
 
                         <div class="all_users-table">
+                            <!-- this full table is copied from the previous files so the class may confuse us-->
                             <table>
                                 <thead>
                                     <tr>
-                                        <td>Username</td>
-                                        <td>Firstname</td>
-                                        <td>Lastname</td>
+                                        <td>Category</td>
+                                        <td>Name</td>
                                         <td>Email</td>
                                         <td>Phone</td>
+                                        <td>Url</td>
+                                        <td>Open Hrs</td>
+                                        <td>Close Hrs</td>
+                                        <td>Open Days</td>
                                         <td>Address</td>
-                                        <td>Reg-date</td>
+                                        <td>Image</td>
+                                        <td>Date</td>
                                         <td style="width: 12%;">Action</td>
                                     </tr>
                                 </thead>
 
                                 <tbody id="display_users_detail">
                                     <!-- filling it using javascript -->
+
                                     <!-- <tr>
-                                        <td>us</td>
-                                        <td>s</td>
-                                        <td>kl</td>
-                                        <td>ijl</td>
-                                        <td>jhk</td>
-                                        <td>nkjhli</td>
-                                        <td>nbhj</td>
+                                        <td>American</td>
+                                        <td>Highlands Bar & Grill</td>
+                                        <td>hbg@mail.com</td>
+                                        <td>6545687458</td>
+                                        <td>www.hbg.com</td>
+                                        <td>7am</td>
+                                        <td>8pm</td>
+                                        <td>mon-sat</td>
+                                        <td>812 Walter Street</td>
+                                        <td><img class="all_res_img" src="Res_img/6290860e72d1e.jpg" alt="" srcset=""></td>
+                                        <td>2022-05-27 16:31:03</td>
                                         <td class="action_data">
                                             <a class="all_user-action all_user-action-trash"><img src="images/icons/trash-solid.png" alt="" srcset=""></a>
                                             <a class="all_user-action all_user-action-edit"><img src="images/icons/file-pen-solid.png" alt="" srcset=""></a>
                                         </td>
                                     </tr> -->
+
+
                                 </tbody>
                             </table>
                         </div>
@@ -126,52 +139,79 @@ require '../connection/_dbconnect.php';
     </div>
 
 
-    <div class="update_user-modal">
+    <div class="update_restaurant-modal" style="display: block;">
         <div class="modal__container">
             <div class="modal-start">
                 <div class="modal-heading">
-                    <h2>Update User</h2>
+                    <h2>Update Restaurant</h2>
+                    <hr>
                 </div>
+
                 <form id="modal-form" action="" method="post">
 
-                    <div class="username">
-                        <label for="username">Username :</label>
-                        <input type="text" name="username" id="username" placeholder="Username">
+                    <div class="first_row grid-row rows_b-margin">
+                        <div class="res_name">
+                            <label for="res_name">Restaurant Name</label><br>
+                            <input type="text" class="input-box" name="res_name" id="res_name" placeholder="Restaurant Name">
+                        </div>
+                        <div class="buss_email">
+                            <label for="bussiness_email">Bussiness E-Mail</label><br>
+                            <input type="text" class="input-box" name="bussiness_email" id="bussiness_email" placeholder="Bussiness Email">
+                        </div>
                     </div>
 
-                    <div class="first_name">
-                        <label for="f_name">First Name :</label>
-                        <input type="text" name="fname" id="f_name" placeholder="First Name">
+                    <div class="second_row grid-row rows_b-margin">
+                        <div class="phone">
+                            <label for="Phone">Phone</label><br>
+                            <input type="text" class="input-box" name="Phone" id="Phone" placeholder="Phone Number">
+                        </div>
+                        <div class="website_url">
+                            <label for="web_url">Website URL</label><br>
+                            <input type="text" class="input-box" name="web_url" id="web_url" placeholder="Website Url">
+                        </div>
                     </div>
 
-                    <div class="last_name">
-                        <label for="l_name">Last Name :</label>
-                        <input type="text" name="lname" id="l_name" placeholder="Last Name">
+                    <div class="third_row grid-row rows_b-margin">
+                        <div class="o_hr">
+                            <label for="o_hrs">Open Hours</label><br>
+                            <input type="text" class="input-box" name="o_hrs" id="o_hrs" placeholder="Open Hours">
+                        </div>
+                        <div class="c_hr">
+                            <label for="c_hrs">Close Hours</label><br>
+                            <input type="text" class="input-box" name="c_hrs" id="c_hrs" placeholder="Close Hours">
+                        </div>
                     </div>
 
-                    <div class="email">
-                        <label for="email">Email :</label>
-                        <input type="text" name="lname" id="email" placeholder="Email">
+                    <div class="fourth_row grid-row rows_b-margin">
+                        <div class="o_hr">
+                            <label for="o_days">Open Days</label><br>
+                            <input type="text" class="input-box" name="o_days" id="o_days" placeholder="Open Days">
+                        </div>
+                        <div class="c_hr">
+                            <label for="image">Image</label><br>
+                            <input type="text" class="input-box" name="image" id="image" placeholder="Image">
+                        </div>
                     </div>
 
-                    <div class="phone">
-                        <label for="phone">Phone :</label>
-                        <input type="text" name="phone" id="phone" placeholder="Phone Number">
+                    <div class="last_row rows_b-margin">
+                        <label for="doj">Select Category</label><br>
+                        <input type="text" class="input-box" name="doj" id="doj" placeholder="Register Date">
                     </div>
 
-                    <div class="address">
-                        <label for="Address">Address :</label>
-                        <input type="text" name="Address" id="Address" placeholder="Address">
-                    </div>
 
-                    <div class="reg-date">
-                        <label for="doj">Reg-Date :</label>
-                        <input type="text" name="doj" id="doj" placeholder="Register Date">
+                    <div class="restaurant_address">
+                        <div class="res_address_heading">
+                            <label for="res_address">
+                                <h2>Restaurant Address</h2>
+                            </label>
+                            <hr>
+                        </div>
+                        <textarea name="res_address" id="res_address" cols="30" rows="6" placeholder="Restaurant Address"></textarea>
                     </div>
 
                     <div class="modal-buttons" style="display: flex;">
-                        <a class="cancle-btn">CLOSE</a>
-                        <a class="submit-btn">UPDATE</a>
+                        <a class="update-btn btn">UPDATE</a>
+                        <a class="cancle-btn btn">CLOSE</a>
                     </div>
                 </form>
             </div>
@@ -186,7 +226,8 @@ require '../connection/_dbconnect.php';
 
 
     <script src="javascript/script.js"></script>
-    <script src="javascript/all_user.js"></script>
+    <script src="javascript/all_restaurant.js"></script>
+
 </body>
 
 </html>

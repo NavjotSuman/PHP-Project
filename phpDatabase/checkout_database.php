@@ -25,7 +25,7 @@ if ($row > 0) {
         // echo $order_price , "<br>";
         // echo $order_quantity , "<br>";
 
-        $sqlRow = "INSERT INTO `users_orders` (`o_id`, `u_id`, `title`, `quantity`, `price`, `status`, `date`) VALUES (NULL, '$uid', '$order_name', '$order_quantity', '$order_price', NULL, current_timestamp())";
+        $sqlRow = "INSERT INTO `users_orders` (`o_id`, `u_id`, `title`, `quantity`, `price`, `status`, `date`) VALUES (NULL, '$uid', '$order_name', '$order_quantity', '$order_price', 'Dispatch', current_timestamp())";
 
         $resultRow = mysqli_query($conn, $sqlRow);
     }

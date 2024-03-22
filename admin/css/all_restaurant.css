@@ -1,0 +1,138 @@
+* {
+    font-family: "Open Sans", sans-serif;
+}
+
+
+.all_res_img {
+    width: 150px;
+    height: 100px;
+    border-radius: 4px;
+}
+
+
+/* ========================================= this css will remian same for both modal update of the all Restaurant and the add new Resturant ========================================*/
+
+#modal-form label {
+    color: #3d4143;
+    font-weight: 500;
+    font-size: 1.089rem;
+}
+
+.update_restaurant-modal {
+    /* background-color: red; */
+    width: 75vw;
+    height: max-content;
+    margin: 0 auto;
+}
+
+.modal__container {
+    padding: 1.1rem;
+    background-color: #f2f2f2;
+    border-radius: 7px;
+}
+
+.modal-heading {
+    padding-bottom: 3rem;
+}
+
+.modal-heading h2 {
+    color: #212223;
+    font-size: 2rem;
+    padding: .69rem 0;
+    font-weight: 400;
+}
+
+.modal-heading hr {
+    margin-top: 3px;
+    border: 1px solid rgb(159, 158, 158);
+    width: 100%;
+}
+
+.grid-row {
+    display: grid;
+    grid-template-columns: 49% 49%;
+    gap: 2%;
+}
+
+.input-box {
+    width: 100%;
+    padding: .9rem .8rem;
+    font-size: 1rem;
+    /* background-color: black; */
+    color: #555559;
+    font-weight: 500;
+    margin-top: .63rem;
+    border-radius: 3px;
+}
+
+.rows_b-margin {
+    margin-bottom: 1.4rem;
+}
+
+.restaurant_address {
+    padding-top: 1.2rem;
+}
+
+.restaurant_address textarea {
+    width: 100%;
+    resize: none;
+    font-size: 1rem;
+    padding: .9rem .8rem;
+    /* background-color: black; */
+    color: #555559;
+    font-weight: 500;
+    border-radius: 3px;
+}
+
+.res_address_heading label h2 {
+    font-weight: 500;
+    color: #3d4143;
+}
+
+.res_address_heading hr {
+    border: 1px solid rgb(159, 158, 158);
+    margin: 1.5rem 0 1.2rem 0;
+}
+
+
+/* styling the buttons of the modal */
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 11px;
+    padding: 1.4rem 2px 1.6rem 0;
+}
+
+.cancle-btn {
+    background-color: #24282c;
+    border: 1px solid #5d6063;
+    color: #ffffff;
+    border-radius: 4px;
+    padding: .8rem 1rem;
+    font-weight: 500;
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.cancle-btn:hover {
+    background-color: #5d6063;
+    box-shadow: 0 0 9px rgba(70, 69, 69, 0.2);
+}
+
+.update-btn {
+    background-color: rgb(34, 34, 157);
+    border: 1px solid #5c4ac7;
+    border-radius: 4px;
+    padding: .8rem 1rem;
+    font-weight: 500;
+    transition: all 300ms ease;
+    color: white;
+    cursor: pointer;
+
+}
+
+.update-btn:hover {
+    background-color: rgb(27, 27, 223);
+    box-shadow: 0 0px 9px 0 rgba(30, 30, 156, 0.2);
+}
