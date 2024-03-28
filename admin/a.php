@@ -5,26 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
 </head>
 
 <body>
-    <a id="a">
-        Wikipedia, a free encyclopedia (opens in another, possibly already existing,
-        tab)
-    </a>
-    <!-- <a href="https://www.wikipedia.org/" target="OpenWikipediaWindow">
-        Wikipedia, a free encyclopedia (opens in another, possibly already existing,
-        tab)
-    </a> -->
+
+    <?php
+    require 'connection/_connection.php';
+
+    // $sql = "SELECT * FROM `res_category` WHERE `c_name` LIKE 's'";
+    // $result = mysqli_query($conn, $sql);
+    // $row = mysqli_num_rows($result);
 
 
-    <script>
-        let a = document.getElementById("a");
-        // console.log(a);
-        a.addEventListener('click', () => {
-            window.open("https://google.com", "newWindow","popup, width=900, height= 500")
-        })
-    </script>
+
+    // echo var_dump($row);
+
+    // $str = "navjot";
+    // echo strlen($str);
+    ?>
+
 </body>
 
 </html>

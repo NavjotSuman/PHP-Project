@@ -1,0 +1,355 @@
+* {
+    font-family: "Open Sans", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* right side boxes edit using css */
+
+
+/* ==================== upper Side Box ================================================ */
+.right_side_boxes {
+    padding: 0.3rem 1.5rem;
+    /* background-color: red; */
+}
+
+.right_side_boxes .upper-box {
+    /* background-color: grey; */
+    padding: 1rem 2.4rem;
+}
+
+.upper-box .add-display-category {
+    background-color: #ffffff;
+    border-radius: 3.4px;
+    padding: 1.4rem 1rem 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.046);
+
+    border: 1px solid rgb(244, 244, 244);
+}
+
+.add_restaurant_category-heading {
+    background-color: #5c4ac7;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    padding: .73rem 1.2rem;
+    margin-bottom: .82rem;
+}
+
+hr {
+    border-top: 1px solid rgb(211, 211, 211);
+}
+
+.add_restaurant_category-heading h2 {
+    color: white;
+    font-weight: 400;
+    font-size: 1.3rem;
+}
+
+
+#form {
+    margin-top: 2.6rem;
+}
+
+#form label {
+    color: rgb(61, 61, 61);
+    font-size: 1.05rem;
+}
+
+#form .category input {
+    margin-top: 5px;
+    width: 100%;
+    padding: .69rem .6rem;
+    font-size: 1.1rem;
+    border: 1px solid rgb(204, 204, 204);
+    /* background-color: rgb(252, 252, 252); */
+
+    transition: all 300ms ease;
+}
+
+#form .category input:focus {
+    border-color: rgb(135, 134, 134);
+    /* box-shadow: 0 0 3px rgba(0, 0, 0, 0.066); */
+}
+
+.add_restaurant-category_buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 1.5rem;
+    /* margin-left: 1px; */
+}
+
+.add_restaurant-category_buttons .add_button input {
+    background-color: #4f3bbe;
+    color: white;
+    font-weight: 500;
+    padding: .7rem .9rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.add_restaurant-category_buttons .reset_button input {
+    background-color: #222b34;
+    color: white;
+    font-weight: 500;
+    padding: .7rem .9rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.add_restaurant-category_buttons .add_button input:hover {
+    background-color: #5c48d2;
+    box-shadow: 0 0 8px #3119b92a;
+    /* color: rgb(234, 234, 234); */
+}
+
+.add_restaurant-category_buttons .reset_button input:hover {
+    background-color: #303c47;
+    box-shadow: 0 0 8px #151a1f2d;
+}
+
+
+
+
+
+
+
+/* =============================================== Bottom Box ===================================== */
+
+
+.lower-box {
+    /* background-color: red; */
+    padding: 2.6rem .5rem 2rem;
+}
+
+.show_category-container {
+    background-color: white;
+    border-radius: 4px;
+    padding: 1.5rem 1.1rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.046);
+}
+
+.show_category-container .show_category_heading {
+    /* background-color: #725cee; */
+    background-color: rgb(36, 35, 35);
+    padding: .8rem 1rem;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+
+    /* border-bottom: 1px solid black; */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.096);
+}
+
+.show_category-container .show_category_heading h2 {
+    color: white;
+    font-weight: 400;
+    text-align: center;
+}
+
+
+#show_category_table {
+    width: 100%;
+    height: fit-content;
+    border-spacing: 0;
+    margin-top: 2rem;
+    border-bottom: 1px solid rgb(216, 216, 216);
+}
+
+#show_category_table thead tr {
+    background-color: rgb(36, 35, 35);
+    color: white;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+#show_category_table tr td {
+    padding: .9rem 1rem .9rem 1.1rem;
+}
+
+.border-right {
+    border-right: 1px solid grey;
+}
+
+/* .border-bottom {
+    border-bottom: 1px solid grey;
+} */
+
+.border-top {
+    border-top: 1px solid grey;
+}
+
+tbody tr {
+    background-color: #f9f9f9;
+    /* background-color: #fff; */
+    font-size: 1.04rem;
+    font-weight: 500;
+    color: rgb(51, 51, 51);
+}
+
+
+
+/* ================================ Action Buttons =========================================== */
+
+.action-img {
+    width: 1.4rem;
+}
+
+.action_data {
+    gap: 7%;
+    justify-content: flex-start;
+    /* justify-content: center; */
+
+}
+
+.action-trush_button {
+    display: grid;
+    background-color: #e74442;
+    box-shadow: 0 0 5px #de9896;
+    border-radius: 10px;
+    padding: 6px 7px;
+}
+
+.action-trush_button img {
+    align-self: center;
+    filter: invert(1);
+}
+
+.action-edit_button {
+    display: grid;
+    background-color: #126ac1;
+    box-shadow: 0 0 5px #b6d8f3;
+    border-radius: 10px;
+    padding: 9px 7px;
+    transition: all 250ms ease-in;
+}
+
+.action-edit_button img {
+    filter: invert(1);
+    align-self: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =================================================================================== css for modal ===================================================================== */
+
+.modal-update_category {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 30;
+    background-color: #85868836;
+    padding: 10rem 10rem;
+
+}
+
+.modal-update_category .upper-box .add-display-category {
+    box-shadow: 0 0 1.4rem rgba(0, 0, 0, 0.155);
+    animation-name: modalAnimation;
+    animation-duration: 400ms;
+}
+
+@keyframes modalAnimation {
+    from {
+        scale: 0;
+    }
+
+    to {
+        scale: 1;
+    }
+}
+
+@keyframes closeModal {
+    from {
+        scale: 1;
+    }
+
+    to {
+        scale: 0;
+    }
+}
+
+
+
+#modal_form {
+    margin-top: 2.6rem;
+}
+
+#modal_form label {
+    color: rgb(61, 61, 61);
+    font-size: 1.05rem;
+}
+
+#modal_form .category input {
+    margin-top: 5px;
+    width: 100%;
+    padding: .69rem .6rem;
+    font-size: 1.1rem;
+    border: 1px solid rgb(204, 204, 204);
+    /* background-color: rgb(252, 252, 252); */
+
+    transition: all 300ms ease;
+}
+
+#modal_form .category input:focus {
+    border-color: rgb(135, 134, 134);
+    /* box-shadow: 0 0 3px rgba(0, 0, 0, 0.066); */
+}
+
+
+
+.add_restaurant-category_buttons .update_button input {
+    background-color: #4f3bbe;
+    color: white;
+    font-weight: 500;
+    padding: .7rem .9rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.add_restaurant-category_buttons .update_button input:hover {
+    background-color: #5c48d2;
+    box-shadow: 0 0 8px #3119b92a;
+    /* color: rgb(234, 234, 234); */
+}
+
+.add_restaurant-category_buttons .modal-close a {
+    position: absolute;
+    background-color: #c01515;
+    color: white;
+    font-weight: 500;
+    padding: .7rem .9rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.add_restaurant-category_buttons .modal-close a:hover {
+    background-color: #d62424;
+    box-shadow: 0 0 8px #b3111137;
+}

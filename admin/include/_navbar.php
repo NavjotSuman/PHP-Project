@@ -15,7 +15,7 @@
             <li class=""><a href="logout.php" class="">Logout</a> </li> -->
         </ul>
         <div class="logout-profile" style="height: fit-content;">
-            <img src="images/bookingSystem/user-icn.png" alt="" srcset="">
+            <img src="images/bookingSystem/profile.jpg" alt="" srcset="">
         </div>
     </div>
 </nav>

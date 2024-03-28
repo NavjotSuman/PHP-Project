@@ -3,6 +3,7 @@
 <?php
 session_start();
 require '../connection/_dbconnect.php';
+
 ?>
 
 <head>
@@ -49,15 +50,15 @@ require '../connection/_dbconnect.php';
                                     </a>
                                     <ul hidden class="hidden-div">
                                         <li><a href="all_restaurant.php"><span>All Restaurant</span></a></li>
-                                        <li><a><span>Add Category</span></a></li>
-                                        <li><a><span>Add Restaurant</span></a></li>
+                                        <li><a href="all_restaurant-add_category.php"><span>Add Category</span></a></li>
+                                        <li><a href="add_restaurant.php"><span>Add Restaurant</span></a></li>
                                     </ul>
                                 </li>
                                 <li class="flex-aside-li list-bg hidden-off">
                                     <a class="flex-anchor"><img class="aside-img " src="images/icons/utensils-solid.png" alt="" srcset=""><span>Menu</span><img src="images/icons/greater-than-solid.png" class="arraw-img" alt="" srcset=""></a>
                                     <ul hidden class="hidden-div">
-                                        <li><a><span>All Menus</span></a></li>
-                                        <li><a><span>Add Menus</span></a></li>
+                                        <li><a href="all_menu.php"><span>All Menus</span></a></li>
+                                        <li><a href="add_menu.php"><span>Add Menus</span></a></li>
                                     </ul>
                                 </li>
                                 <li class="flex-aside-li list-bg"><a href="all_orders.php" class="flex-anchor"><img class="aside-img" src="images/icons/cart-shopping-solid.png" alt="" srcset=""><span>Orders</span></a></li>
@@ -105,6 +106,7 @@ require '../connection/_dbconnect.php';
                                     </tr>
                                 </thead>
 
+
                                 <tbody id="display_users_detail">
                                     <!-- filling it using javascript -->
 
@@ -138,85 +140,6 @@ require '../connection/_dbconnect.php';
 
     </div>
 
-
-    <div class="update_restaurant-modal" style="display: block;">
-        <div class="modal__container">
-            <div class="modal-start">
-                <div class="modal-heading">
-                    <h2>Update Restaurant</h2>
-                    <hr>
-                </div>
-
-                <form id="modal-form" action="" method="post">
-
-                    <div class="first_row grid-row rows_b-margin">
-                        <div class="res_name">
-                            <label for="res_name">Restaurant Name</label><br>
-                            <input type="text" class="input-box" name="res_name" id="res_name" placeholder="Restaurant Name">
-                        </div>
-                        <div class="buss_email">
-                            <label for="bussiness_email">Bussiness E-Mail</label><br>
-                            <input type="text" class="input-box" name="bussiness_email" id="bussiness_email" placeholder="Bussiness Email">
-                        </div>
-                    </div>
-
-                    <div class="second_row grid-row rows_b-margin">
-                        <div class="phone">
-                            <label for="Phone">Phone</label><br>
-                            <input type="text" class="input-box" name="Phone" id="Phone" placeholder="Phone Number">
-                        </div>
-                        <div class="website_url">
-                            <label for="web_url">Website URL</label><br>
-                            <input type="text" class="input-box" name="web_url" id="web_url" placeholder="Website Url">
-                        </div>
-                    </div>
-
-                    <div class="third_row grid-row rows_b-margin">
-                        <div class="o_hr">
-                            <label for="o_hrs">Open Hours</label><br>
-                            <input type="text" class="input-box" name="o_hrs" id="o_hrs" placeholder="Open Hours">
-                        </div>
-                        <div class="c_hr">
-                            <label for="c_hrs">Close Hours</label><br>
-                            <input type="text" class="input-box" name="c_hrs" id="c_hrs" placeholder="Close Hours">
-                        </div>
-                    </div>
-
-                    <div class="fourth_row grid-row rows_b-margin">
-                        <div class="o_hr">
-                            <label for="o_days">Open Days</label><br>
-                            <input type="text" class="input-box" name="o_days" id="o_days" placeholder="Open Days">
-                        </div>
-                        <div class="c_hr">
-                            <label for="image">Image</label><br>
-                            <input type="text" class="input-box" name="image" id="image" placeholder="Image">
-                        </div>
-                    </div>
-
-                    <div class="last_row rows_b-margin">
-                        <label for="doj">Select Category</label><br>
-                        <input type="text" class="input-box" name="doj" id="doj" placeholder="Register Date">
-                    </div>
-
-
-                    <div class="restaurant_address">
-                        <div class="res_address_heading">
-                            <label for="res_address">
-                                <h2>Restaurant Address</h2>
-                            </label>
-                            <hr>
-                        </div>
-                        <textarea name="res_address" id="res_address" cols="30" rows="6" placeholder="Restaurant Address"></textarea>
-                    </div>
-
-                    <div class="modal-buttons" style="display: flex;">
-                        <a class="update-btn btn">UPDATE</a>
-                        <a class="cancle-btn btn">CLOSE</a>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
 
 
     <?php

@@ -3,6 +3,7 @@
 <?php
 session_start();
 require '../connection/_dbconnect.php';
+
 ?>
 
 <head>
@@ -12,7 +13,8 @@ require '../connection/_dbconnect.php';
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/all_users.css">
-    <link rel="stylesheet" href="css/all_user-modal.css">
+    <!-- <link rel="stylesheet" href="css/all_user-modal.css"> -->
+    <link rel="stylesheet" href="css/all_restaurant.css">
 
     <!-- open sans font-family -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -78,42 +80,69 @@ require '../connection/_dbconnect.php';
                     <div class="admin__dashboard-container">
 
                         <div class="dashboard__header">
-                            <h4>All Users</h4>
+                            <h4>All Restaurant</h4>
                         </div>
 
 
                         <!-- first row in admin dashboard -->
 
                         <div class="all_users-table">
+                            <!-- this full table is copied from the previous files so the class may confuse us-->
                             <table>
                                 <thead>
                                     <tr>
-                                        <td>Username</td>
-                                        <td>Firstname</td>
-                                        <td>Lastname</td>
-                                        <td>Email</td>
-                                        <td>Phone</td>
-                                        <td>Address</td>
-                                        <td>Reg-date</td>
-                                        <td style="width: 12%;">Action</td>
+                                        <td>Restaurant</td>
+                                        <td>Dish</td>
+                                        <td>Description</td>
+                                        <td>Price</td>
+                                        <td>Image</td>
+                                        <td style="width: 10%;">Action</td>
                                     </tr>
                                 </thead>
 
+
                                 <tbody id="display_users_detail">
                                     <!-- filling it using javascript -->
-                                    <!-- <tr>
-                                        <td>us</td>
-                                        <td>s</td>
-                                        <td>kl</td>
-                                        <td>ijl</td>
-                                        <td>jhk</td>
-                                        <td>nkjhli</td>
-                                        <td>nbhj</td>
-                                        <td class="action_data">
-                                            <a class="all_user-action all_user-action-trash"><img src="images/icons/trash-solid.png" alt="" srcset=""></a>
-                                            <a class="all_user-action all_user-action-edit"><img src="images/icons/file-pen-solid.png" alt="" srcset=""></a>
-                                        </td>
-                                    </tr> -->
+                                    <?php
+                                    $sql = "SELECT * FROM `dishes`";
+                                    $result = mysqli_query($conn, $sql);
+                                    $row = mysqli_num_rows($result);
+
+                                    if ($row > 0) {
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            $dishId = $row['d_id'];
+                                            $resId = $row['rs_id'];
+                                            $name = $row['title'];
+                                            $desc = $row['slogan'];
+                                            $price = $row['price'];
+                                            $image = $row['img'];
+                                            $res_name = '';
+
+                                            $res_sql = "SELECT * FROM `restaurant` WHERE `rs_id` = $resId";
+                                            $res_result = mysqli_query($conn, $res_sql);
+                                            $res_row = mysqli_num_rows($res_result);
+                                            if ($res_row == 1) {
+                                                $res_row = mysqli_fetch_assoc($res_result);
+                                                $res_name = $res_row['title'];
+
+                                                echo '<tr>
+                                                        <td>' . $res_name . '</td>
+                                                        <td>' . $name . '</td>
+                                                        <td>' . $desc . '</td>
+                                                        <td>&#8377;<span>' . $price . '<span></td>
+                                                        <td><img class="all_res_img" src="Res_img/dishes/' . $image . '" alt="" srcset=""></td>
+                                                        <td class="action_data">
+                                                            <a class="all_user-action all_user-action-trash" data-dish_number="' . $dishId . '"><img src="images/icons/trash-solid.png" alt="" srcset=""></a>
+                                                            <a href="all_menu-edit.php?form_number=' . $dishId . '" class="all_user-action all_user-action-edit" data-dish_number="' . $dishId . '"><img src="images/icons/file-pen-solid.png" alt="" srcset=""></a>
+                                                        </td>
+                                                        </tr>';
+                                            }
+                                        }
+                                    }
+
+                                    ?>
+
+
                                 </tbody>
                             </table>
                         </div>
@@ -126,58 +155,6 @@ require '../connection/_dbconnect.php';
     </div>
 
 
-    <div class="update_user-modal">
-        <div class="modal__container">
-            <div class="modal-start">
-                <div class="modal-heading">
-                    <h2>Update User</h2>
-                </div>
-                <form id="modal-form" action="" method="post">
-
-                    <div class="username">
-                        <label for="username">Username :</label>
-                        <input type="text" name="username" id="username" placeholder="Username">
-                    </div>
-
-                    <div class="first_name">
-                        <label for="f_name">First Name :</label>
-                        <input type="text" name="fname" id="f_name" placeholder="First Name">
-                    </div>
-
-                    <div class="last_name">
-                        <label for="l_name">Last Name :</label>
-                        <input type="text" name="lname" id="l_name" placeholder="Last Name">
-                    </div>
-
-                    <div class="email">
-                        <label for="email">Email :</label>
-                        <input type="text" name="lname" id="email" placeholder="Email">
-                    </div>
-
-                    <div class="phone">
-                        <label for="phone">Phone :</label>
-                        <input type="text" name="phone" id="phone" placeholder="Phone Number">
-                    </div>
-
-                    <div class="address">
-                        <label for="Address">Address :</label>
-                        <input type="text" name="Address" id="Address" placeholder="Address">
-                    </div>
-
-                    <div class="reg-date">
-                        <label for="doj">Reg-Date :</label>
-                        <input type="text" name="doj" id="doj" placeholder="Register Date">
-                    </div>
-
-                    <div class="modal-buttons" style="display: flex;">
-                        <a class="cancle-btn">CLOSE</a>
-                        <a class="submit-btn">UPDATE</a>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
 
     <?php
     include 'include/_footer.php';
@@ -186,7 +163,8 @@ require '../connection/_dbconnect.php';
 
 
     <script src="javascript/script.js"></script>
-    <script src="javascript/all_user.js"></script>
+    <script src="javascript/all_menu.js"></script>
+
 </body>
 
 </html>

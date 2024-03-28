@@ -19,16 +19,19 @@
 }
 
 .update_restaurant-modal {
-    /* background-color: red; */
-    width: 75vw;
+    width: 100%;
     height: max-content;
-    margin: 0 auto;
 }
 
 .modal__container {
+    width: 98%;
+    margin: 8px auto;
     padding: 1.1rem;
     background-color: #f2f2f2;
     border-radius: 7px;
+
+    animation-name: Modal-animation;
+    animation-duration: 900ms;
 }
 
 .modal-heading {
@@ -59,10 +62,14 @@
     padding: .9rem .8rem;
     font-size: 1rem;
     /* background-color: black; */
-    color: #555559;
+    /* color: #555559; */
+    color: #1d1d1e;
     font-weight: 500;
     margin-top: .63rem;
-    border-radius: 3px;
+    border-radius: 4px;
+
+    border: 1px solid #dcdada;
+    background-color: white;
 }
 
 .rows_b-margin {
@@ -92,6 +99,12 @@
 .res_address_heading hr {
     border: 1px solid rgb(159, 158, 158);
     margin: 1.5rem 0 1.2rem 0;
+}
+
+
+.custom-box {
+    appearance: none;
+    color: rgb(61, 60, 60);
 }
 
 
@@ -133,6 +146,24 @@
 }
 
 .update-btn:hover {
-    background-color: rgb(27, 27, 223);
+    background-color: rgb(30, 30, 237);
     box-shadow: 0 0px 9px 0 rgba(30, 30, 156, 0.2);
+}
+
+
+
+
+
+/* animation for modal */
+@keyframes Modal-animation {
+    from {
+
+        /* scale: 0; */
+        opacity: 0;
+    }
+
+    to {
+        /* scale: 1; */
+        opacity: 1;
+    }
 }

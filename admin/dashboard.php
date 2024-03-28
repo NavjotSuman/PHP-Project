@@ -47,16 +47,16 @@ require '../connection/_dbconnect.php';
                                     <a class="flex-anchor"><img class="aside-img" src="images/icons/box-archive-solid.png" alt="" srcset=""><span>Restaurant</span><img src="images/icons/greater-than-solid.png" class="arraw-img" alt="" srcset="">
                                     </a>
                                     <ul hidden class="hidden-div">
-                                    <li><a href="all_restaurant.php"><span>All Restaurant</span></a></li>
-                                        <li><a><span>Add Category</span></a></li>
-                                        <li><a><span>Add Restaurant</span></a></li>
+                                        <li><a href="all_restaurant.php"><span>All Restaurant</span></a></li>
+                                        <li><a href="all_restaurant-add_category.php"><span>Add Category</span></a></li>
+                                        <li><a href="add_restaurant.php"><span>Add Restaurant</span></a></li>
                                     </ul>
                                 </li>
                                 <li class="flex-aside-li list-bg hidden-off">
                                     <a class="flex-anchor"><img class="aside-img " src="images/icons/utensils-solid.png" alt="" srcset=""><span>Menu</span><img src="images/icons/greater-than-solid.png" class="arraw-img" alt="" srcset=""></a>
                                     <ul hidden class="hidden-div">
-                                        <li><a><span>All Menus</span></a></li>
-                                        <li><a><span>Add Menus</span></a></li>
+                                        <li><a href="all_menu.php"><span>All Menus</span></a></li>
+                                        <li><a href="add_menu.php"><span>Add Menus</span></a></li>
                                     </ul>
                                 </li>
                                 <li class="flex-aside-li list-bg"><a href="all_orders.php" class="flex-anchor"><img class="aside-img" src="images/icons/cart-shopping-solid.png" alt="" srcset=""><span>Orders</span></a></li>
