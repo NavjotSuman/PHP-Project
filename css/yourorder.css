@@ -128,7 +128,7 @@ tbody tr td {
 .order_status-btn {
     background-color: #5bc0de;
     color: white;
-    padding: .6rem 1rem;
+    padding: .7rem 1rem;
     border-radius: .2rem;
 
     display: flex;
@@ -136,6 +136,87 @@ tbody tr td {
     justify-content: flex-start;
     width: 71%;
     gap: 8%;
+}
+
+
+
+/* status buttons */
+.order_status-btn {
+    cursor: pointer;
+    transition: all 400ms ease;
+    font-weight: 500;
+    border: 1px solid #d9d5d5;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.173);
+    font-size: 1.1rem;
+    border-radius: 6px;
+}
+
+.order_status-btn:active {
+    background-color: rgb(211, 209, 209);
+}
+
+.order_status-btn img {
+    width: 1.7rem;
+
+}
+
+.status-box-On {
+    /* on the way */
+    background-color: #ffb22b;
+    padding: .6rem 1rem;
+
+}
+
+.status-box-On img {
+    width: 1.9rem;
+    filter: invert(1);
+}
+
+
+.status-box-Delivered {
+    /* delivered */
+    background-color: #207020;
+}
+
+.status-box-Delivered img {
+    width: 1.6rem;
+    filter: invert(1);
+}
+
+
+
+
+.status-box-Dispatched {
+    /* dispatched */
+    background-color: #5c4ac7;
+}
+
+.status-box-Dispatched img {
+    width: 1.6rem;
+    filter: invert(1);
+}
+
+
+
+.status-box-Order {
+    /* order palced */
+    background-color: #5bc0de;
+
+}
+
+.status-box-Order img {
+    filter: invert(1);
+}
+
+
+.status-box-Cancelled {
+    /* order cancled */
+    background-color: #ef5350;
+}
+
+.status-box-Cancelled img {
+    width: 2rem;
+    filter: invert(1);
 }
 
 

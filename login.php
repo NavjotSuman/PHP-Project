@@ -2,6 +2,11 @@
 <html lang="en">
 <?php
 session_start();
+
+if (isset($_SESSION['user_id'])) {
+    header("location: index.php");
+}
+
 require('connection/_dbconnect.php');
 
 if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {

@@ -99,23 +99,23 @@ require '../connection/_dbconnect.php';
             $total_orders = mysqli_num_rows($result);
 
             // processing order
-            $sql = "SELECT * FROM `users_orders` WHERE `status` LIKE 'in process'";
+            $sql = "SELECT * FROM `users_orders` WHERE `status` LIKE 'On The Way'";
             $result = mysqli_query($conn, $sql);
             $total_processing = mysqli_num_rows($result);
 
             // Order delivered
-            $sql = "SELECT * FROM `users_orders` WHERE `status` LIKE 'closed'";
+            $sql = "SELECT * FROM `users_orders` WHERE `status` LIKE 'delivered'";
             $result = mysqli_query($conn, $sql);
             $total_delivered = mysqli_num_rows($result);
 
             // order canceled
-            $sql = "SELECT * FROM `users_orders` WHERE `status` LIKE 'rejected'";
+            $sql = "SELECT * FROM `users_orders` WHERE `status` LIKE 'cancelled'";
             $result = mysqli_query($conn, $sql);
             $canceled_order = mysqli_num_rows($result);
 
             // total earning
             $total_earning = 0;
-            $sql = "SELECT * FROM `users_orders` WHERE `status` LIKE 'closed'";
+            $sql = "SELECT * FROM `users_orders` WHERE `status` LIKE 'delivered'";
             $result = mysqli_query($conn, $sql);
             $row = mysqli_num_rows($result);
             if ($row > 0) {
@@ -260,7 +260,7 @@ require '../connection/_dbconnect.php';
                             <div class="card">
                                 <div class="media">
                                     <div class="media-left">
-                                        <img src="images/icons/dollar-sign-solid.png" alt="" srcset="" class="admin__dashboard-img">
+                                        <img src="images/icons/dollar-sign-solid.png" alt="" srcset="" style="width: 3.3rem;" class="admin__dashboard-img">
                                     </div>
                                     <div class="media-right">
                                         <h2><span>&#8377;<span><?php echo $total_earning; ?></h2>

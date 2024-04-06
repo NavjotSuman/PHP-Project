@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET" && $_GET['dishNum']) {
         $quantity = 1;
         $price = $row['price'];
 
-        $sql = "INSERT INTO `users_orders` (`o_id`, `u_id`, `d_id`, `title`, `quantity`, `price`, `status`, `date`) VALUES (NULL, '$userId', '$dishNum', '$dishName', '$quantity', '$price', 'dispatch', current_timestamp())";
+        $sql = "INSERT INTO `users_orders` (`o_id`, `u_id`, `d_id`, `title`, `quantity`, `price`, `status`, `date`) VALUES (NULL, '$userId', '$dishNum', '$dishName', '$quantity', '$price', 'Order Placed', current_timestamp())";
 
         $result = mysqli_query($conn, $sql);
 

@@ -97,7 +97,7 @@ if (!(isset($_SESSION['user_id']))) {
                 header("location: quick_order.php?dishNum=$dishNum");
             }
         } else {
-            // if it is a cart order
+            // if it is a cart order 
             if (isset($_POST['submit']) && !isset($_GET['dishNum'])) {
                 header("location: phpDatabase/checkout_database.php");
             }

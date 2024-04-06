@@ -69,6 +69,7 @@ if (!isset($_SESSION['admin_id'])) {
                 <div class="right-pro div-padding">
                     <select name="order__status" id="order-status" required="required">
                         <option value="" disabled selected>--Select Order Status--</option>
+                        <option value="Dispatched">Dispatched</option>
                         <option value="On The Way">On the way</option>
                         <option value="Delivered">Delivered</option>
                         <option value="Cancelled">Cancelled</option>

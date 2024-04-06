@@ -114,7 +114,7 @@ let show_myOrder = () => {
                                         <td class="border_left border_bottom">${itemQuantity}</td>
                                         <td class="border_left border_bottom">&#8377; ${price}</td>
                                         <td class="border_left border_bottom">
-                                        <a class="order_status-btn" data-icons=""><img style="width: 1.7rem;filter: invert(1);" src="images/status-${status}.png" > ${status}</a>
+                                        <a class="order_status-btn status-box-${status}" data-icons=""><img style="" class="img-${status}" src="images/status-${status}.png" > ${status}</a>
                                         </td>
                                         <td class="border_left border_bottom">${date}</td>
                                         <td class="border_left border_right border_bottom delete-Button" style="padding:0;padding-right: 7px;text-align: center;">
