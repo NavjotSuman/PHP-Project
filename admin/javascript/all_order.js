@@ -139,7 +139,7 @@ let onEditClick = () => {
                 document.getElementById("username").innerHTML = `${username}`;
                 document.getElementById("title").innerHTML = `${title}`;
                 document.getElementById("quantity").innerHTML = `${quantity}`;
-                document.getElementById("price").innerHTML = `${price}`;
+                document.getElementById("price").firstElementChild.innerHTML = `${price}`;
                 document.getElementById("address").innerHTML = `${address}`;
                 document.getElementById("date").innerHTML = `${date}`;
                 document.getElementById("status").innerHTML = `${status}`;
@@ -197,7 +197,9 @@ let show_orders = () => {
                                             <td>${quantity}</td>
                                             <td>&#8377;${price}</td>
                                             <td>${address}</td>
-                                            <td>${status}</td>
+                                            <td class="border_left border_bottom">
+                                            <a class="order_status-btn status-box-${status}" data-icons=""><img style="" class="img-${status}" src="../images/status-${status}.png" > ${status}</a>
+                                            </td>
                                             <td>${date}</td>
                                             <td class="action_data">
                                                 <a class="all_user-action all-user-delete all_user-action-trash" data-order_id="${oid}"><img src="images/icons/trash-solid.png" alt="" srcset=""></a>

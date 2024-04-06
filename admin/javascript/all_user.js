@@ -1,4 +1,3 @@
-let usersRow = document.getElementById("display_users_detail");
 let userModal = document.querySelector(".update_user-modal");
 let closeModal_Btn = document.querySelector(".cancle-btn");
 let updateModal_Btn = document.querySelector(".submit-btn");
@@ -22,8 +21,13 @@ let onEditClick = () => {
         value.addEventListener('click', () => {
 
             // opening the modal whenever we click on the edit pen icon of the user table 
+            let scrollY = (window.scrollY);
+            console.log(scrollY)
+            userModal.style.top = `${scrollY}px`;
+
             userModal.style.display = "block";
-            window.scrollTo(0, 0)
+
+            // window.scrollTo(0, 0)
 
             // updating the modal with the user info
             let EditId = value.getAttribute("data-user_id");
@@ -44,7 +48,7 @@ let onEditClick = () => {
                 let last_name = data[0].l_name;
                 let email = data[0].email;
                 let phone = data[0].phone;
-                let address = data[0].Address;
+                let address = data[0].address;
                 let date = data[0].date;
 
                 modalForm.firstElementChild.lastElementChild.setAttribute("value", `${username}`)
@@ -70,7 +74,7 @@ let onEditClick = () => {
 
             // on click on the update button of the modal
             updateModal_Btn.addEventListener('click', () => {
-                console.log("hi");
+                // console.log("hi");
                 let username = document.getElementById("username").value;
                 let firstName = document.getElementById("f_name").value;
                 let lastName = document.getElementById("l_name").value;
@@ -208,6 +212,7 @@ let onDeleteClick = () => {
 
 // ============================ show all user accounts to admin panel ====================================== 
 let show_user_account = () => {
+    let usersRow = document.getElementById("display_users_detail");
     usersRow.innerHTML = "";
     fetch("operations-file/all_user-fetch.php")
         .then((Response) => {

@@ -120,7 +120,7 @@ require '../connection/_dbconnect.php';
                                         <td>Quantity</td>
                                         <td>Price</td>
                                         <td>Address</td>
-                                        <td>Status</td>
+                                        <td style="width: 18%;">Status</td>
                                         <td>Order Date</td>
                                         <td style="width: 12%;">Action</td>
                                     </tr>
@@ -194,7 +194,7 @@ require '../connection/_dbconnect.php';
                             <tr>
                                 <td><strong>Price: </strong></td>
                                 <td>
-                                    <center id="price">$14.00</center>
+                                    <center id="price">&#8377;<span>14.00</span></center>
                                 </td>
                             </tr>
                             <tr>
@@ -223,6 +223,7 @@ require '../connection/_dbconnect.php';
         </div>
     </div>
 
+    <img src="" alt="" srcset="">
 
     <?php
     include 'include/_footer.php';
