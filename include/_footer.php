@@ -26,8 +26,9 @@
                 </div>
                 <div class="address margin-top">
                     <h5 class="footer__heading">Address</h5>
-                    <p>Bogura, Rajshahi, Bangladesh.</p>
-                    <h5 class="footer__number">Phone: +8801608445456</a></h5>
+                    <p>Jalandhar, Punjab, India.</p>
+                    <h5 class="footer__number">Phone: +9198000-00062</a></h5>
+                    <span style="color: white; font-weight:300; ">Email: 69navjot@gmail.com</span>
                 </div>
                 <div class="cadditional-info margin-top">
                     <h5 class="footer__heading">Addition informations</h5>

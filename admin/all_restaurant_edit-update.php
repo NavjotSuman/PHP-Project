@@ -2,6 +2,9 @@
 <html lang="en">
 <?php
 session_start();
+if (!isset($_SESSION['admin_id'])) {
+    header("location: index.php");
+}
 require '../connection/_dbconnect.php';
 
 $resId = $_GET['res_id'];

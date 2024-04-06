@@ -20,16 +20,18 @@ let show_cart = () => {
                 carted_dishes.innerHTML += `<article class="widget-body" >
                 <div class="title-row">
                 <div class="cart_dish_name">${cartName}</div>
-                <a><img src="images/dustbin.png" alt=""></a>
+                <a><img src="images/dustbin.png"  alt="" style="filter: invert(15%) sepia(0%) saturate(45%) hue-rotate(176deg) brightness(91%) contrast(82%); width: 0.9rem;"></a>
                 </div>
                 <div class="dish_price-quantity">
-                <div class="dish_price">$<span>${cartPrice}</span></div>
+                <div class="dish_price">&#8377;<span>${cartPrice}</span></div>
                 <div class="dish_quantity">${cartQuantity}</div>
                 </div>
                 </article >`;
 
                 DishTotalPrice += parseFloat(cartPrice);
             }
+        }).catch((error) => {
+            console.log("You Have No Cart");
         })
 
 
@@ -40,25 +42,63 @@ let show_cart = () => {
 
         Array.from(delete_item_row).forEach((value) => {
             value.lastElementChild.addEventListener('click', () => {
-                let delete_item_name = value.firstElementChild.innerHTML;
 
+                // scroll location
+                let scrollY = (window.scrollY) + 200;
 
-                let deleteItemNameJson = {
-                    "delete_item": `${delete_item_name}`,
-                }
-                fetch('delete_cart.php', {
-                    method: "POST",
-                    body: JSON.stringify(deleteItemNameJson),
-                    headers: {
-                        "Content-type": "application/json",
+                let DeleteModal = document.querySelector(".deleteModalStartHere");
+                DeleteModal.style.top = `${scrollY}px`;
+                // DeleteModal.style.left = "10%";
+                DeleteModal.style.display = "block";
+                DeleteModal.style.animationName = "start-deleteConfirmModal";
+                DeleteModal.style.animationDuration = "400ms";
+
+                // fetching the Confirm Button of The Delete Order modal
+                let confirmDelete = document.querySelector(".confirm-btn");
+
+                // fetching the Cancel Button of The Delete Order modal
+                let CancelDelete = document.querySelector(".cancel-btn");
+
+                // on Click Confirm of the Deete order modal
+                confirmDelete.addEventListener('click', () => {
+
+                    let delete_item_name = value.firstElementChild.innerHTML;
+
+                    let deleteItemNameJson = {
+                        "delete_item": `${delete_item_name}`,
                     }
-                }).then((Response) => {
-                    return (Response.json());
-                }).then((result) => {
-                    if (result.deleted == 'success') {
-                        console.log(`Item ${delete_item_name} Deleted Successfully`)
-                    }
-                    show_cart();
+                    fetch('delete_cart.php', {
+                        method: "POST",
+                        body: JSON.stringify(deleteItemNameJson),
+                        headers: {
+                            "Content-type": "application/json",
+                        }
+                    }).then((Response) => {
+                        return (Response.json());
+                    }).then((result) => {
+                        if (result.deleted == 'success') {
+                            console.log(`Item ${delete_item_name} Deleted Successfully`)
+                            // hiding the Delete Confirm Modal
+                            DeleteModal.style.animationName = "hide-deleteConfirmModal";
+                            DeleteModal.style.animationDuration = "300ms";
+
+                            setTimeout(() => {
+                                DeleteModal.style.display = "none";
+                            }, 280);
+                        }
+                        show_cart();
+                    }).catch((error) => {
+                        console.log("error is in the dustbin section of the dishes section")
+                    })
+                })
+                CancelDelete.addEventListener('click', () => {
+                    // hiding the Delete Confirm Modal
+                    DeleteModal.style.animationName = "hide-deleteConfirmModal";
+                    DeleteModal.style.animationDuration = "300ms";
+
+                    setTimeout(() => {
+                        DeleteModal.style.display = "none";
+                    }, 280);
                 })
             })
         })
@@ -121,9 +161,6 @@ let show_cart = () => {
     }, 100);
 
 
-
-
-
 }
 show_cart();
 
@@ -147,6 +184,13 @@ Array.from(addCart).forEach((value) => {
 
     value.addEventListener('click', () => {
 
+        // will be 0 if not logged
+        let UserLogged = value.firstElementChild.getAttribute("data-user");
+
+        if (UserLogged == 0) {
+            window.location.href = "login.php";
+        }
+
         // Seetced Dish-Name
         dishName = value.parentElement.parentElement.firstElementChild.lastElementChild.firstElementChild.innerHTML;
 
@@ -155,18 +199,21 @@ Array.from(addCart).forEach((value) => {
 
         // Selected Dish Quantity
         dishQuantity = value.parentElement.firstElementChild.lastElementChild.firstElementChild.value;
+        value.parentElement.firstElementChild.lastElementChild.firstElementChild.value = "1";
 
+        // fetching the Dishid of the cart
+        dishId = value.getAttribute("data-dishid");
+
+        // console.log(dishId);
         // console.log(dishQuantity)
-
-        uid = 1;
 
 
         // using fetch
         let cartSelected = {
-            "uid": `${uid}`,
             "dishName": `${dishName}`,
             "dishValue": `${dishValue}`,
             "dishQuantity": `${dishQuantity}`,
+            "dishId": `${dishId}`,
         }
 
         fetch('cart-insert.php', {
@@ -176,13 +223,15 @@ Array.from(addCart).forEach((value) => {
                 "Content-type": "application/json",
             }
         }).then((Response) => {
-            return (Response.json());
+            return Response.json();
         }).then((result) => {
-            if (result.insert != 'success') {
-                console.log("data Can't be inserted");
-            }
+            // if (result.insert != 'success') {
+            //     console.log("data Can't be inserted");
+            // }
+            console.log("success")
         }).catch((error) => {
             console.log("there is an ", error);
+            // window.location.href = "login.php";
         });
         setTimeout(() => {
             show_cart();

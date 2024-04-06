@@ -77,6 +77,14 @@ body {
     width: 4.2rem;
 }
 
+.Mobile-tablet-li_only {
+    display: none;
+}
+
+.desktop-li_only {
+    display: list-item;
+}
+
 nav {
     /* background-color: red; */
     background-image: url('../images/menu-bg.jpg');
@@ -111,6 +119,78 @@ nav {
     font-size: 1.4rem;
 } */
 
+.list-user-profile {
+    padding-top: 7px;
+}
+
+.user-prifile-picture {
+    border-radius: 50%;
+    width: 2.5rem;
+    cursor: pointer;
+}
+
+
+.profile-action {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 10rem;
+    top: 4.2rem;
+    gap: 1px;
+    /* background-color: #133271; */
+    padding: .3rem .4rem;
+    display: none;
+}
+
+.profile-action a {
+    padding: .9rem 1.5rem;
+    background-color: #3865be;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: white;
+    border-radius: 2px;
+    transition: all 300ms ease-out;
+    box-shadow: 0 0 5px #4e75c258;
+    animation-name: Start-profile-actionAnimation;
+    animation-duration: 300ms;
+}
+
+.profile-action a:hover {
+    background-color: #163980;
+    box-shadow: 0 0 10px #3f6ecc57;
+}
+
+.logout-section:hover {
+    background-color: rgb(201, 16, 16) !important;
+    box-shadow: 0 0 10px #d53b3b57 !important;
+}
+
+
+@keyframes Start-profile-actionAnimation {
+    from {
+        scale: 0;
+        opacity: .1;
+    }
+
+    to {
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+@keyframes Stop-profile-actionAnimation {
+    from {
+        scale: 1;
+        opacity: 1;
+
+    }
+
+    to {
+        scale: 0;
+        opacity: .1;
+    }
+}
 
 /* ============================== HEADER ============================================ */
 
@@ -120,7 +200,8 @@ header {
     height: 25rem;
     overflow: hidden;
     margin-bottom: 2rem;
-    background-color: rgba(7, 6, 29, 0.37);
+    background-color: #00000057;
+    /* filter: saturate(1); */
 }
 
 header::before {
@@ -742,10 +823,119 @@ footer {
 
 
 
+/* ============ For Delete Modal Confirm=================== */
+.deleteModalStartHere {
+    display: none;
+    /* background-color: red; */
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    z-index: 30;
+}
+
+.delete_confirm-modal {
+    width: 25rem;
+    /* margin: 0 auto; */
+    background-color: white;
+    border: 1px solid #c8c8c8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.078);
+    border-radius: 7px;
+    overflow: hidden;
+    margin-left: 37vw;
 
 
 
+}
 
+
+.delete_confirm-modal_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.delete_modal-row1 {
+    padding: .6rem 1rem;
+    border-bottom: 1px solid #dee2e6;
+    /* background-color: rgb(243, 243, 243); */
+}
+
+.delete_modal-row1 h2 {
+    color: rgb(58, 58, 58);
+    font-weight: 800;
+    font-size: 1.3rem;
+}
+
+.delete_modal-row2 {
+    padding: 1.6rem 1.3rem;
+    border-bottom: 1px solid #dee2e6;
+    /* align-self: center; */
+    /* width: 100%; */
+}
+
+.delete_modal-row2 p {
+    color: #29292b;
+    ;
+}
+
+.delete_modal-row3 {
+    /* background-color: rgb(243, 243, 243); */
+    padding: .5rem .8rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 7px;
+}
+
+.confirm-btn {
+    background-color: rgb(10, 116, 10);
+    border-radius: 3px;
+    color: white;
+    transition: all 400ms ease;
+    cursor: pointer;
+}
+
+.confirm-btn:hover {
+    background-color: rgb(14, 159, 14);
+    box-shadow: 0 0 10px rgba(0, 128, 0, 0.17);
+}
+
+.cancel-btn {
+    background-color: rgb(207, 13, 13);
+    border-radius: 3px;
+    color: white;
+    transition: all 400ms ease;
+    cursor: pointer;
+}
+
+.cancel-btn:hover {
+    background-color: rgb(231, 11, 11);
+    box-shadow: 0 0 10px rgba(228, 7, 7, 0.17);
+}
+
+
+@keyframes start-deleteConfirmModal {
+    from {
+        scale: 0;
+        opacity: .3;
+    }
+
+    to {
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+@keyframes hide-deleteConfirmModal {
+    from {
+        scale: 1;
+        opacity: 1;
+    }
+
+    to {
+        scale: 0;
+        opacity: 0;
+    }
+}
 
 
 
@@ -798,6 +988,7 @@ footer {
 
 
     /* =Navbar= */
+
     .navButton {
         display: block;
     }
@@ -826,6 +1017,14 @@ footer {
         opacity: 0;
     }
 
+    .Mobile-tablet-li_only {
+        display: list-item;
+    }
+
+    .desktop-li_only {
+        display: none;
+    }
+
     .nav__menu li a {
         display: flex;
 
@@ -836,15 +1035,19 @@ footer {
     }
 
     .nav__menu li:nth-child(2) {
-        animation-delay: 200ms;
+        animation-delay: 150ms;
     }
 
     .nav__menu li:nth-child(3) {
-        animation-delay: 300ms;
+        animation-delay: 250ms;
     }
 
     .nav__menu li:nth-child(4) {
-        animation-delay: 400ms;
+        animation-delay: 350ms;
+    }
+
+    .nav__menu li:nth-child(5) {
+        animation-delay: 450ms;
     }
 
     @keyframes navMenuItem {

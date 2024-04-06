@@ -1,15 +1,16 @@
 <?php
 
+session_start();
+
 require '../connection/_dbconnect.php';
 
-session_start();
 if (!isset($_SESSION['user_id'])) {
     header("location: ../login.php");
 } else {
     $uid = $_SESSION['user_id'];
 }
-
-$sql = "SELECT * FROM `users_orders` WHERE `u_id` = $uid";
+// ORDER BY column DESC
+$sql = "SELECT * FROM `users_orders` WHERE `u_id` = $uid ORDER BY `o_id` DESC";
 $result = mysqli_query($conn, $sql);
 
 $output = [];

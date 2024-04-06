@@ -61,7 +61,7 @@ tbody tr td {
     background: #fafaf8;
     /* border: 1px solid #eceeef; */
     text-align: left;
-    padding: 1.1rem .2rem 1.5rem 1rem;
+    padding: 1.1rem 1.5rem 1.5rem 1rem;
 }
 
 
@@ -89,15 +89,77 @@ tbody tr td {
     justify-content: center;
 }
 
-.delete-img-dustbin__bg {
+/* .delete-img-dustbin__bg {
     padding: 5px 3px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: inset 0 0 1rem rgba(244, 3, 3, 0.244);
+    box-shadow:  0 0 1rem #e74442;
+} */
+
+/* .dustbin-img {
+
+    padding: 1rem;
+    width: 1rem;
+    filter: invert(14%) sepia(75%) saturate(4928%) hue-rotate(9deg) brightness(99%) contrast(122%); 
+} */
+
+.delete-img-dustbin__bg {
+    background-color: #e74442;
+    /* height: fit-content; */
+    height: fit-content;
+    width: fit-content;
+    padding: .6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
 }
 
 .dustbin-img {
-    width: 25px;
-    filter: invert(14%) sepia(75%) saturate(4928%) hue-rotate(9deg) brightness(99%) contrast(122%);
+    /* padding-inline-start: 1rem; */
+    width: 1.3rem;
+    filter: invert(1);
+}
+
+
+
+/* Order Status Button */
+.order_status-btn {
+    background-color: #5bc0de;
+    color: white;
+    padding: .6rem 1rem;
+    border-radius: .2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 71%;
+    gap: 8%;
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:600px) {
+
+    .my-orders-page .container table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+    }
+
+    .my-orders-page .container {
+        width: 99%;
+    }
+
+    .order_status-btn {
+        width: 100%;
+    }
 }

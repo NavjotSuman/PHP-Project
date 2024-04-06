@@ -2,6 +2,9 @@
 <html lang="en">
 <?php
 session_start();
+if (!isset($_SESSION['admin_id'])) {
+    header("location: index.php");
+}
 require '../connection/_dbconnect.php';
 
 ?>
@@ -82,6 +85,28 @@ require '../connection/_dbconnect.php';
                         <div class="dashboard__header">
                             <h4>All Restaurant</h4>
                         </div>
+
+
+
+                        <!-- modal for confirm the order for delete the order  -->
+                        <div class="deleteModalStartHere">
+                            <div class="delete_confirm-modal">
+                                <div class="delete_confirm-modal_container">
+                                    <div class="delete_modal-row1">
+                                        <h2>RESTAURANT DELETE</h2>
+                                    </div>
+                                    <div class="delete_modal-row2">
+                                        <P>Are You Sure??</P>
+                                    </div>
+                                    <div class="delete_modal-row3">
+                                        <a class="btn confirm-btn">CONFIRM</a>
+                                        <a class="btn cancel-btn">CANCEL</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
 
 
                         <!-- first row in admin dashboard -->

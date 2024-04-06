@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    text-decoration: none !important;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+body {
+    color: #212529;
+    background-color: rgb(248, 248, 248);
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+header {
+    display: grid !important;
+    grid-template-columns: 20% 79%;
+    gap: 1%;
+}
+
+
+/* navbar */
+nav {
+    background-color: #343a40;
+    border-bottom: 1px solid grey;
+    box-shadow: 0 0 5px #7b6464f5;
+    height: 4rem;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    margin-left: 1.4rem;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+nav a h2 {
+    font-weight: 700;
+    font-size: 2rem;
+    text-shadow: 0 0 10px #1b1919;
+}
+
+
+/* =================================== LEFT SIDE =================================== */
+
+header .left_side {
+    /* padding-top: 1.7rem; */
+    padding: 1.8rem 1rem;
+    background-color: #fafafa;
+    height: 83vh;
+    width: 100%;
+    border-right: 1px solid #f2f2f2;
+}
+
+.user_image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .4rem;
+    margin-bottom: 1.7rem;
+}
+
+.user_image span {
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.left_side-picture {
+    width: 8.5rem;
+    border-radius: 50%;
+}
+
+.user_navbar {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.user_navbar a {
+    background-color: #f6f6f6;
+    padding: .7rem 1rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: black;
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+
+.user_navbar a:hover {
+    background-color: #e3e3e3;
+}
+
+.user_navbar-logout:hover {
+    background-color: rgb(227, 69, 69) !important;
+    color: white;
+}
+
+.user_navbar-selected {
+    background-color: #e3e3e3 !important;
+}
+
+
+
+
+
+/* ========================================================== RIGHT SIDE ======================================================== */
+
+.right_side {
+    background-color: rgb(236, 236, 236);
+    /* width: 50vw; */
+    padding: 1rem 2.6rem;
+    /* margin-left: 2rem;
+    margin-right: 3rem; */
+    /* width: 80%; */
+    margin: .3rem 1.6rem;
+    border-radius: 10px;
+    z-index: 21;
+}
+
+.right_side div {
+    margin-bottom: 1rem;
+}
+
+.update_profile {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.right_side .update_profile img {
+    width: 10rem;
+    border-radius: 50%;
+    border: 1px solid #fafafa;
+    box-shadow: 3px 2px 5px rgba(0, 0, 0, 0.1);
+
+}
+
+label {
+    font-weight: 500;
+    font-size: 1rem;
+    color: #3e4245;
+}
+
+.input-box {
+    width: 100%;
+    padding: .6rem .8rem;
+    border-radius: 3px;
+    font-size: 1.03rem;
+    font-weight: 400;
+    margin-top: .19rem;
+    color: #313234;
+    border: 1px solid #e2e2e2;
+    background-color: rgb(254, 254, 254);
+    transition: all 200ms ease;
+}
+
+.input-box:focus {
+    border-color: #c0b8b8;
+    background-color: white;
+}
+
+textarea {
+    width: 100%;
+    /* size-adjust: none;  */
+    padding: .6rem .8rem;
+    border-radius: 3px;
+    font-size: 1.03rem;
+    font-weight: 400;
+    resize: none !important;
+    margin-top: .2rem;
+    color: #313234;
+    border: 1px solid #e2e2e2;
+    background-color: rgb(254, 254, 254);
+    transition: all 200ms ease;
+}
+
+textarea:focus {
+    border-color: #c0b8b8;
+    background-color: white;
+}
+
+.update-btn {
+    background-color: #0e0eda;
+    padding: .7rem 1.2rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    border: 1px solid #1313ed;
+    box-shadow: 0 0 5px rgba(10, 10, 209, 0.107);
+    transition: all 400ms ease;
+    cursor: pointer;
+}
+
+.update-btn:hover {
+    background-color: blue;
+    box-shadow: 0 0 8px rgba(6, 6, 136, 0.201);
+}
+
+.change-password {
+    background-color: #d41111;
+    padding: .7rem 1.2rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    border: 1px solid #ed1313;
+    box-shadow: 0 0 5px rgba(209, 10, 10, 0.107);
+    transition: all 400ms ease;
+    cursor: pointer;
+}
+
+.change-password:hover {
+    background-color: rgb(242, 8, 8);
+    /* background-color: blue; */
+    box-shadow: 0 0 8px rgba(136, 6, 6, 0.201);
+}

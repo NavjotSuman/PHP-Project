@@ -1,6 +1,8 @@
 <?php
 session_start();
- 
+
+
+
 include 'connection/_dbconnect.php';
 
 // get the content from javscript file
@@ -16,10 +18,13 @@ $uid = $_SESSION['user_id'];
 $dishName = $decode['dishName'];
 $dishValue = $decode['dishValue'];
 $dishQuantity = $decode['dishQuantity'];
+$dishId = $decode['dishId'];
+
 $sql = "SELECT * FROM `cart-items` WHERE `u_id` = $uid AND `cart_name` LIKE '$dishName'";
 $result = mysqli_query($conn, $sql);
 
 $row = mysqli_num_rows($result);
+// if cart Already Existed
 if ($row > 0) {
 
     $row = mysqli_fetch_assoc($result);
@@ -42,9 +47,14 @@ if ($row > 0) {
 
     $sql = "UPDATE `cart-items` SET `cart_price` = '$dishValue_row', `cart_quantity` = '$dishQuantity_row' WHERE `u_id` = $uid AND `cart_name` LIKE '$dishName'";
     mysqli_query($conn, $sql);
-    // $sql = "UPDATE `cart-items` SET `cart_price` = '$dishValue1', `cart_quantity` = '$dishQuantity1'  WHERE `u_id` = $uid AND `cart_name` LIKE '$dishName'";
+
+    if ($result) {
+        echo json_encode(array('insert' => 'success'));
+    } else {
+        echo json_encode(array('fail' => 'failed'));
+    }
 } else {
-    $sql = "INSERT INTO `cart-items` (`cart_id`, `u_id`, `cart_name`, `cart_price`, `cart_quantity`, `date_of_cart`) VALUES (NULL, '$uid', '$dishName', '$dishValue', '$dishQuantity', current_timestamp());";
+    $sql = "INSERT INTO `cart-items` (`cart_id`, `u_id`,`d_id`, `cart_name`, `cart_price`, `cart_quantity`, `date_of_cart`) VALUES (NULL, '$uid', '$dishId' ,'$dishName', '$dishValue', '$dishQuantity', current_timestamp())";
 
     $result = mysqli_query($conn, $sql);
     if ($result) {

@@ -4,26 +4,66 @@ delete_btn = Array.from(delete_btn);
 let onDeleteClick = () => {
     delete_btn.forEach(value => {
         value.addEventListener('click', () => {
-            let catId = value.getAttribute("data-cat_number");
-            console.log(catId);
-            let fetchValues = {
-                "catid": `${catId}`,
-            }
 
-            fetch("operations-file/all_restaurant-add_category-delete.php", {
-                method: "POST",
-                body: JSON.stringify(fetchValues),
-                headers: {
-                    "Content-type": "application/json",
+
+
+            // let scrollX = window.scrollX;
+            let scrollY = (window.scrollY) + 190;
+
+            let DeleteModal = document.querySelector(".deleteModalStartHere");
+            DeleteModal.style.top = `${scrollY}px`;
+            // DeleteModal.style.left = "37%";
+            DeleteModal.style.display = "block";
+            DeleteModal.style.animationName = "start-deleteConfirmModal";
+            DeleteModal.style.animationDuration = "400ms";
+
+            // fetching the Confirm Button of The Delete Order modal
+            let confirmDelete = document.querySelector(".confirm-btn");
+
+            // fetching the Cancel Button of The Delete Order modal
+            let CancelDelete = document.querySelector(".cancel-btn");
+
+            // on Click Confirm of the Deete order modal
+            confirmDelete.addEventListener('click', () => {
+
+                let catId = value.getAttribute("data-cat_number");
+                console.log(catId);
+                let fetchValues = {
+                    "catid": `${catId}`,
                 }
-            }).then((Response) => {
-                return (Response.json());
-            }).then((result) => {
-                if (result.deleted == 'success') {
-                    location.reload();
-                }
+
+                fetch("operations-file/all_restaurant-add_category-delete.php", {
+                    method: "POST",
+                    body: JSON.stringify(fetchValues),
+                    headers: {
+                        "Content-type": "application/json",
+                    }
+                }).then((Response) => {
+                    return (Response.json());
+                }).then((result) => {
+                    if (result.deleted == 'success') {
+                        // hiding the Delete Confirm Modal
+                        DeleteModal.style.animationName = "hide-deleteConfirmModal";
+                        DeleteModal.style.animationDuration = "300ms";
+
+                        setTimeout(() => {
+                            DeleteModal.style.display = "none";
+                            location.reload();
+                        }, 280);
+                    }
+                })
             })
 
+
+            CancelDelete.addEventListener('click', () => {
+                // hiding the Delete Confirm Modal
+                DeleteModal.style.animationName = "hide-deleteConfirmModal";
+                DeleteModal.style.animationDuration = "300ms";
+
+                setTimeout(() => {
+                    DeleteModal.style.display = "none";
+                }, 280);
+            })
 
         })
     });
@@ -78,10 +118,16 @@ let onEditClick = () => {
         value.addEventListener('click', () => {
             // category nmber
             let catId = value.getAttribute("data-cat_number");
+
+            // let scrollX = window.scrollX;
+            let scrollY = (window.scrollY);
+
             // making display of the modal block
+            document.querySelector(".modal-update_category").style.top = `${scrollY}px`;
             document.querySelector(".modal-update_category").style.display = "block";
             // scrool to the top and it will be smooth scroll
-            window.scrollTo(0, 0)
+
+            // window.scrollTo(0, 0)
 
 
             // update modal 

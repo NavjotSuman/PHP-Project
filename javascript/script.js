@@ -189,7 +189,7 @@ Array.from(res_categories).forEach((value) => {
 });
 
 
-// on-clik on "All", it will set every thing as default 
+// ================================================================================= on-clik on "All", it will set every thing as default 
 if (all_selected != null) {
 
     all_selected.addEventListener('click', () => {
@@ -216,3 +216,24 @@ if (all_selected != null) {
 }
 
 
+
+let user_profile_picture = document.querySelector(".user-prifile-picture");
+let profile_action = document.querySelector(".profile-action");
+
+
+user_profile_picture.addEventListener('click', () => {
+    if (profile_action.getAttribute("data-userProfile")) {
+        profile_action.style.animationName = "Stop-profile-actionAnimation";
+        profile_action.style.animationDuration = "300ms";
+        setTimeout(() => {
+            profile_action.style.display = "none";
+        }, 280);
+        profile_action.removeAttribute("data-userProfile");
+    }
+    else {
+        profile_action.style.display = "flex";
+        profile_action.style.animationName = "Start-profile-actionAnimation";
+        profile_action.style.animationDuration = "300ms";
+        profile_action.setAttribute("data-userProfile", "true");
+    }
+})

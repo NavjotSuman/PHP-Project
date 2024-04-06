@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-require('connection/_dbconnect.php');
 session_start();
+require('connection/_dbconnect.php');
 
 if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
     header("location: index.php");
@@ -27,7 +27,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             // it will indicate that you are a genune user logined
 
             $_SESSION['user_id'] = $row['u_id'];
-            $_SESSION['username'] = $row['f_name'];
+            $_SESSION['fname'] = $row['f_name'];
+            $_SESSION['lname'] = $row['l_name'];
+            $_SESSION['image'] = $row['image'];
             header("location: index.php");
         } else {
             $incorrect_password = true;

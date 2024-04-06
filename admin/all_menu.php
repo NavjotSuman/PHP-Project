@@ -2,6 +2,9 @@
 <html lang="en">
 <?php
 session_start();
+if (!isset($_SESSION['admin_id'])) {
+    header("location: index.php");
+}
 require '../connection/_dbconnect.php';
 
 ?>
@@ -80,10 +83,30 @@ require '../connection/_dbconnect.php';
                     <div class="admin__dashboard-container">
 
                         <div class="dashboard__header">
-                            <h4>All Restaurant</h4>
+                            <h4>All DISHES</h4>
                         </div>
 
 
+                        <!-- modal for confirm the order for delete the order  -->
+                        <div class="deleteModalStartHere">
+                            <div class="delete_confirm-modal">
+                                <div class="delete_confirm-modal_container">
+                                    <div class="delete_modal-row1">
+                                        <h2>ORDER DELETE</h2>
+                                    </div>
+                                    <div class="delete_modal-row2">
+                                        <P>Are You Sure??</P>
+                                    </div>
+                                    <div class="delete_modal-row3">
+                                        <a class="btn confirm-btn">CONFIRM</a>
+                                        <a class="btn cancel-btn">CANCEL</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        
                         <!-- first row in admin dashboard -->
 
                         <div class="all_users-table">
@@ -134,7 +157,7 @@ require '../connection/_dbconnect.php';
                                                         <td class="action_data">
                                                             <a class="all_user-action all_user-action-trash" data-dish_number="' . $dishId . '"><img src="images/icons/trash-solid.png" alt="" srcset=""></a>
                                                             <a href="all_menu-edit.php?form_number=' . $dishId . '" class="all_user-action all_user-action-edit" data-dish_number="' . $dishId . '"><img src="images/icons/file-pen-solid.png" alt="" srcset=""></a>
-                                                        </td>
+                                                        </td> 
                                                         </tr>';
                                             }
                                         }

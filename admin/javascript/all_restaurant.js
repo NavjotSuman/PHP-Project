@@ -7,27 +7,67 @@ let onDeleteClick = () => {
     Array.from(delete_button).forEach((value) => {
         value.addEventListener('click', () => {
 
-            let delete_Id = value.getAttribute("data-restaurant_number")
-            //         // console.log(delete_Id);
-            let fetchValues = {
-                "delId": `${delete_Id}`,
-            }
 
-            fetch("operations-file/all_restaurant_delete-btn.php", {
-                method: "POST",
-                body: JSON.stringify(fetchValues),
-                headers: {
-                    "Content-type": "application/json",
+
+            // let scrollX = window.scrollX;
+            let scrollY = (window.scrollY) + 190;
+
+            let DeleteModal = document.querySelector(".deleteModalStartHere");
+            DeleteModal.style.top = `${scrollY}px`;
+            // DeleteModal.style.left = "37%";
+            DeleteModal.style.display = "block";
+            DeleteModal.style.animationName = "start-deleteConfirmModal";
+            DeleteModal.style.animationDuration = "400ms";
+
+            // fetching the Confirm Button of The Delete Order modal
+            let confirmDelete = document.querySelector(".confirm-btn");
+
+            // fetching the Cancel Button of The Delete Order modal
+            let CancelDelete = document.querySelector(".cancel-btn");
+
+            // on Click Confirm of the Deete order modal
+            confirmDelete.addEventListener('click', () => {
+
+                let delete_Id = value.getAttribute("data-restaurant_number")
+                //         // console.log(delete_Id);
+                let fetchValues = {
+                    "delId": `${delete_Id}`,
                 }
-            }).then((Response) => {
-                return (Response.json());
-            }).then((result) => {
-                if (result.deleted == 'success') {
-                    console.log(`Order Deleted Successfully`);
-                    showAll_restaurant();
-                }
-            }).catch((error) => {
-                console.log("error is ");
+
+                fetch("operations-file/all_restaurant_delete-btn.php", {
+                    method: "POST",
+                    body: JSON.stringify(fetchValues),
+                    headers: {
+                        "Content-type": "application/json",
+                    }
+                }).then((Response) => {
+                    return (Response.json());
+                }).then((result) => {
+                    if (result.deleted == 'success') {
+                        console.log(`Order Deleted Successfully`);
+
+                        // hiding the Delete Confirm Modal
+                        DeleteModal.style.animationName = "hide-deleteConfirmModal";
+                        DeleteModal.style.animationDuration = "300ms";
+
+                        setTimeout(() => {
+                            DeleteModal.style.display = "none";
+                            showAll_restaurant();
+                        }, 280);
+                    }
+                }).catch((error) => {
+                    console.log("error is ");
+                })
+            })
+
+            CancelDelete.addEventListener('click', () => {
+                // hiding the Delete Confirm Modal
+                DeleteModal.style.animationName = "hide-deleteConfirmModal";
+                DeleteModal.style.animationDuration = "300ms";
+
+                setTimeout(() => {
+                    DeleteModal.style.display = "none";
+                }, 280);
             })
         })
     })

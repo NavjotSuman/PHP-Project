@@ -23,8 +23,57 @@
 
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #fafafa;
+}
+
+.nav__menu {
+    display: none;
+    position: absolute;
+    right: 7rem;
+    /* right: 3rem; */
+
+    /* animation-name: navbarAnimation; */
+    /* animation-name: navbarDisable; */
+    /* animation-duration: 500ms; */
+
+}
+
+/* background-color: #5c4ac7; */
+
+.nav__menu li a {
+    color: white;
+    font-weight: 600;
+    background-color: red;
+    padding: .7rem 1.2rem;
+    border-radius: 5px;
+}
+
+
+@keyframes navbarAnimation {
+    from {
+        right: -2rem;
+        opacity: 0;
+        /* z-index: -1; */
+    }
+
+    to {
+        scale: 1;
+        z-index: 69;
+    }
+}
+
+@keyframes navbarDisable {
+    from {}
+
+    to {
+        right: -2rem;
+        opacity: 0;
+    }
 }
 
 .dashboard-main {
@@ -92,6 +141,7 @@ nav .logout-profile img {
     width: 100%;
     height: 2.7rem;
     border-radius: 50%;
+    cursor: pointer;
 
 }
 
@@ -327,4 +377,124 @@ aside ul li a span {
     background-color: #dfdfdf;
     border-radius: 6px;
 
+}
+
+
+
+
+
+
+
+/* ============ For Delete Modal Confirm=================== */
+.deleteModalStartHere {
+    display: none;
+    /* background-color: red; */
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    z-index: 30;
+}
+
+.delete_confirm-modal {
+    width: 25rem;
+    /* margin: 0 auto; */
+    background-color: white;
+    border: 1px solid #c8c8c8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.078);
+    border-radius: 7px;
+    overflow: hidden;
+    margin-left: 37vw;
+
+
+
+}
+
+
+.delete_confirm-modal_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.delete_modal-row1 {
+    padding: .6rem 1rem;
+    border-bottom: 1px solid #dee2e6;
+    /* background-color: rgb(243, 243, 243); */
+}
+
+.delete_modal-row1 h2 {
+    color: rgb(58, 58, 58);
+    font-weight: 800;
+    font-size: 1.3rem;
+}
+
+.delete_modal-row2 {
+    padding: 1.6rem 1.3rem;
+    border-bottom: 1px solid #dee2e6;
+    /* align-self: center; */
+    /* width: 100%; */
+}
+
+.delete_modal-row2 p {
+    color: #29292b;
+    ;
+}
+
+.delete_modal-row3 {
+    /* background-color: rgb(243, 243, 243); */
+    padding: .5rem .8rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 7px;
+}
+
+.confirm-btn {
+    background-color: rgb(10, 116, 10);
+    border-radius: 3px;
+    color: white;
+    transition: all 400ms ease;
+    cursor: pointer;
+}
+
+.confirm-btn:hover {
+    background-color: rgb(14, 159, 14);
+    box-shadow: 0 0 10px rgba(0, 128, 0, 0.17);
+}
+
+.cancel-btn {
+    background-color: rgb(207, 13, 13);
+    border-radius: 3px;
+    color: white;
+    transition: all 400ms ease;
+    cursor: pointer;
+}
+
+.cancel-btn:hover {
+    background-color: rgb(231, 11, 11);
+    box-shadow: 0 0 10px rgba(228, 7, 7, 0.17);
+}
+
+
+@keyframes start-deleteConfirmModal {
+    from {
+        scale: 0;
+        opacity: .3;
+    }
+
+    to {
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+@keyframes hide-deleteConfirmModal {
+    from {
+        scale: 1;
+        opacity: 1;
+    }
+
+    to {
+        scale: 0;
+        opacity: 0;
+    }
 }

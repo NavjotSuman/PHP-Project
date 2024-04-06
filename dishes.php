@@ -4,7 +4,12 @@
 <?php
 require('connection/_dbconnect.php');
 session_start();
-?> 
+
+$user_id = 0;
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+}
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -37,9 +42,9 @@ session_start();
         <div class="restaurant_step_navbar">
             <div class="container">
                 <ul class="row_links">
-                    <li><span class="step_counting">1</span><a href="">Choose Restaurant</a></li>
-                    <li><span class="step_counting">2</span><a href="">Pick your favourite food</a></li>
-                    <li><span class="step_counting">3</span><a href="">Order and Pay</a></li>
+                    <li><span class="step_counting">1</span><a href="restaurant.php">Choose Restaurant</a></li>
+                    <li><span class="step_counting step_counting-selected">2</span><a>Pick your favourite food</a></li>
+                    <li><span class="step_counting">3</span><a>Order and Pay</a></li>
                 </ul>
             </div>
         </div>
@@ -84,6 +89,25 @@ session_start();
 
 
     <!-- ============================================================================= DISHES MENU ======================================================================= -->
+    <!-- modal for confirm the order for delete the order  -->
+    <div class="deleteModalStartHere">
+        <div class="delete_confirm-modal">
+            <div class="delete_confirm-modal_container">
+                <div class="delete_modal-row1">
+                    <h2>CART DELETE</h2>
+                </div>
+                <div class="delete_modal-row2">
+                    <P>Are You Sure??</P>
+                </div>
+                <div class="delete_modal-row3">
+                    <a class="btn confirm-btn">CONFIRM</a>
+                    <a class="btn cancel-btn">CANCEL</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="dish_menu-cart">
         <div class="container">
             <section class="dish_menu-cart-left">
@@ -107,7 +131,7 @@ session_start();
                         <h2>TOTAL</h2>
                     </div>
                     <div class="cart_total__details-price">
-                        $<span>0</span>
+                        &#8377;<span>0</span>
                     </div>
                     <div class="cart_total__details-delivery_system">
                         <h3>Free Delivery!</h3>
@@ -151,21 +175,23 @@ session_start();
                                 <div class="dishes__menu-right">
                                     <div class="dishes__menu-right-price">
                                         <div class="dishes__menu_price">
-                                            <h2>$<span>' . $row['price'] . '</span></h2>
+                                            <h2>&#8377;<span>' . $row['price'] . '</span></h2>
                                         </div>
 
                                         <div class="dishes__menu_counting">
                                             <input type="text" value="1">
                                         </div>
                                     </div>
-                                    <div class="add-to-card-btn btn" >
-                                        <a>Add To Cart</a>
+                                    <div class="add-to-card-btn btn" data-dishid="' . $row['d_id'] . '">
+                                        <a data-user=' . $user_id . '>Add To Cart</a>
                                     </div>
                                 </div>
                             </article>
                             <div class="space-between-articles"></div>';
                         }
                     }
+
+
                     ?>
 
                 </div>

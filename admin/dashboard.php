@@ -2,6 +2,9 @@
 <html lang="en">
 <?php
 session_start();
+if (!isset($_SESSION['admin_id'])) {
+    header("location: index.php");
+}
 require '../connection/_dbconnect.php';
 ?>
 
@@ -260,7 +263,7 @@ require '../connection/_dbconnect.php';
                                         <img src="images/icons/dollar-sign-solid.png" alt="" srcset="" class="admin__dashboard-img">
                                     </div>
                                     <div class="media-right">
-                                        <h2><span>&dollar;<span><?php echo $total_earning; ?></h2>
+                                        <h2><span>&#8377;<span><?php echo $total_earning; ?></h2>
                                         <p>Total Earning</p>
                                     </div>
                                 </div>

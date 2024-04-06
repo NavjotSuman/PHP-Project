@@ -2,6 +2,11 @@
 <html lang="en">
 <?php
 
+session_start();
+if (!isset($_SESSION['admin_id'])) {
+    header("location: index.php");
+}
+
 if (!(($_SERVER['REQUEST_METHOD']) && isset($_GET['newform_id']))) {
 ?>
     <script>
@@ -49,7 +54,7 @@ require '../connection/_dbconnect.php';
 
         if ($status == "1") {
             $status = "Active";
-        }else {
+        } else {
             $status = "Offline";
         }
     }
@@ -57,7 +62,7 @@ require '../connection/_dbconnect.php';
     ?>
     <div class="user_details">
         <div class="container">
-            <div class="top-div div-padding "><strong><?php echo $f_name?>'s Profile</strong></div>
+            <div class="top-div div-padding "><strong><?php echo $f_name ?>'s Profile</strong></div>
             <div class="black_div grid-divider t-border">
                 <div class="left-pro div-padding"> </div>
                 <div class="right-pro div-padding"> </div>

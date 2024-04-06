@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+session_start();
+if (!isset($_SESSION['admin_id'])) {
+    header("location: index.php");
+}
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -63,9 +69,9 @@
                 <div class="right-pro div-padding">
                     <select name="order__status" id="order-status" required="required">
                         <option value="" disabled selected>--Select Order Status--</option>
-                        <option value="in process">On the way</option>
-                        <option value="closed">Delivered</option>
-                        <option value="rejected">Cancled</option>
+                        <option value="On The Way">On the way</option>
+                        <option value="Delivered">Delivered</option>
+                        <option value="Cancelled">Cancelled</option>
                     </select>
                 </div>
             </div>

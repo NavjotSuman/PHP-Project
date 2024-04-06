@@ -2,6 +2,9 @@
 <html lang="en">
 <?php
 session_start();
+if (!isset($_SESSION['admin_id'])) {
+    header("location: index.php");
+}
 require '../connection/_dbconnect.php';
 
 // operation after click on the ADD Button
@@ -159,10 +162,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['submit'])) {
             <!--  ================================================================================ right side of the dashboard ================================================================================= -->
             <div class="main-right-display">
 
-                <div class="marqueetag">
-                    <!-- write the marquee here -->
-                    <marquee behavior="" direction="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi eos sed aliquid culpa distinctio nostrum sequi a quas. Harum omnis at nobis amet deserunt sapiente totam provident laudantium officiis illum?</marquee>
-                </div>
+                <?php include 'include/_marquee_info.php'; ?>
+
 
                 <div class="update_restaurant-modal">
                     <div class="modal__container">

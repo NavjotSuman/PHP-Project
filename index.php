@@ -3,10 +3,12 @@
 
 <?php
 require('connection/_dbconnect.php');
+
 session_start();
-// $_SESSION['user_id'] = 'true';
-// session_unset();
-// session_destroy();
+
+if (isset($_SESSION['image'])) {
+    $image = $_SESSION['image'];
+}
 ?>
 
 <head>
@@ -95,7 +97,7 @@ session_start();
             </div>
             <div class="all-popular-dishes">
                 <?php
-                $sql = "SELECT * FROM `dishes` LIMIT 6";
+                $sql = "SELECT * FROM dishes ORDER BY odr_count DESC LIMIT 6";
                 $result = mysqli_query($conn, $sql);
                 $row = mysqli_num_rows($result);
 
@@ -105,24 +107,26 @@ session_start();
                         $slogan = $row['slogan'];
                         $price = $row['price'];
                         $img = $row['img'];
+                        $dishId = $row['d_id'];
+                        $res_id = $row['rs_id'];
 
 
                         echo '<article class="all-popular-dishes__article">
-                    <div class="bottom__popular-dishes">
-                        <div class="dish-img" data-img_src="' . $img . '">
-                        </div>
-                        <div class="dish-info">
-                            <h5><a href="">' . $title . '</a></h5>
-                            <div class="dish__description">
-                                <p>' . $slogan . '</p>
-                            </div>
-                            <div class="price-btn">
-                                <span class="price">$' . $price . '</span>
-                                <a href="" class="btn">Order Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </article>';
+                                <div class="bottom__popular-dishes">
+                                    <div class="dish-img" data-img_src="' . $img . '">
+                                    </div>
+                                    <div class="dish-info">
+                                        <h5><a href="dishes.php?Res_id=' . $res_id . '">' . $title . '</a></h5>
+                                        <div class="dish__description">
+                                            <p>' . $slogan . '</p>
+                                        </div>
+                                        <div class="price-btn">
+                                            <span class="price">&#8377;' . $price . '</span>
+                                            <a href="checkout.php?dishNum=' . $dishId . '" class="btn">Order Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                </article>';
                     }
                 }
                 ?>

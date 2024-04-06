@@ -11,6 +11,14 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.00">
     <link rel="icon" href="images/icon.png" sizes="1400*1400">
     <title>foody - Navjot Project</title>
+
+    <!-- Required meta tags -->
+    <!-- <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"> -->
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/restaurant.css">
     <link rel="stylesheet" href="css/yourorder.css">
@@ -42,9 +50,9 @@ session_start();
         <div class="restaurant_step_navbar">
             <div class="container">
                 <ul class="row_links">
-                    <li><span class="step_counting">1</span><a href="">Choose Restaurant</a></li>
-                    <li><span class="step_counting">2</span><a href="">Pick your favourite food</a></li>
-                    <li><span class="step_counting">3</span><a href="">Order and Pay</a></li>
+                    <li><span class="step_counting step_counting-selected">1</span><a href="restaurant.php">Choose Restaurant</a></li>
+                    <li><span class="step_counting step_counting-selected">2</span><a href="dishes.php?Res_id=1">Pick your favourite food</a></li>
+                    <li><span class="step_counting step_counting-selected">3</span><a>Order and Pay</a></li>
                 </ul>
             </div>
         </div>
@@ -61,6 +69,28 @@ session_start();
         </section>
 
 
+
+        <!-- modal for confirm the order for delete the order  -->
+        <div class="deleteModalStartHere">
+            <div class="delete_confirm-modal">
+                <div class="delete_confirm-modal_container">
+                    <div class="delete_modal-row1">
+                        <h2>ORDER DELETE</h2>
+                    </div>
+                    <div class="delete_modal-row2">
+                        <P>Are You Sure??</P>
+                    </div>
+                    <div class="delete_modal-row3">
+                        <a class="btn confirm-btn">CONFIRM</a>
+                        <a class="btn cancel-btn">CANCEL</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- displaying the user orders in the this section  -->
         <section class="my-orders-page">
             <div class="container">
                 <table>
@@ -156,6 +186,10 @@ session_start();
 
     <script src="javascript/script.js"></script>
     <script src="javascript/your_order.js"></script>
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script> -->
 
 </body>
 

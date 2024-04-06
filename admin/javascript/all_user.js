@@ -23,6 +23,7 @@ let onEditClick = () => {
 
             // opening the modal whenever we click on the edit pen icon of the user table 
             userModal.style.display = "block";
+            window.scrollTo(0, 0)
 
             // updating the modal with the user info
             let EditId = value.getAttribute("data-user_id");
@@ -133,29 +134,68 @@ let onDeleteClick = () => {
 
     Array.from(delete_button).forEach((value) => {
         value.addEventListener('click', () => {
-            let delete_Id = value.getAttribute("data-user_id");
-            // console.log(delete_Id);
-            let fetchValues = {
-                "uid": `${delete_Id}`,
-            }
-            fetch("operations-file/all_user-delete.php", {
-                method: "POST",
-                body: JSON.stringify(fetchValues),
-                headers: {
-                    "Content-type": "application/json",
+
+
+
+            // let scrollX = window.scrollX;
+            let scrollY = (window.scrollY) + 190;
+
+            let DeleteModal = document.querySelector(".deleteModalStartHere");
+            DeleteModal.style.top = `${scrollY}px`;
+            // DeleteModal.style.left = "37%";
+            DeleteModal.style.display = "block";
+            DeleteModal.style.animationName = "start-deleteConfirmModal";
+            DeleteModal.style.animationDuration = "400ms";
+
+            // fetching the Confirm Button of The Delete Order modal
+            let confirmDelete = document.querySelector(".confirm-btn");
+
+            // fetching the Cancel Button of The Delete Order modal
+            let CancelDelete = document.querySelector(".cancel-btn");
+
+            // on Click Confirm of the Deete order modal
+            confirmDelete.addEventListener('click', () => {
+
+                let delete_Id = value.getAttribute("data-user_id");
+                // console.log(delete_Id);
+                let fetchValues = {
+                    "uid": `${delete_Id}`,
                 }
-            }).then((Response) => {
-                return (Response.json());
-            }).then((result) => {
-                if (result.deleted == 'success') {
-                    console.log(`User Deleted Successfully`);
-                    show_user_account();
-                }
-                else {
-                    console.log("User is not deleted");
-                }
-            }).catch((error) => {
-                console.log("There is an error in delete User page");
+                fetch("operations-file/all_user-delete.php", {
+                    method: "POST",
+                    body: JSON.stringify(fetchValues),
+                    headers: {
+                        "Content-type": "application/json",
+                    }
+                }).then((Response) => {
+                    return (Response.json());
+                }).then((result) => {
+                    if (result.deleted == 'success') {
+                        console.log(`User Deleted Successfully`);
+                        DeleteModal.style.animationName = "hide-deleteConfirmModal";
+                        DeleteModal.style.animationDuration = "300ms";
+
+                        setTimeout(() => {
+                            DeleteModal.style.display = "none";
+                            show_user_account();
+                        }, 280);
+                    }
+                    else {
+                        console.log("User is not deleted");
+                    }
+                }).catch((error) => {
+                    console.log("There is an error in delete User page");
+                })
+            })
+
+            CancelDelete.addEventListener('click', () => {
+                // hiding the Delete Confirm Modal
+                DeleteModal.style.animationName = "hide-deleteConfirmModal";
+                DeleteModal.style.animationDuration = "300ms";
+
+                setTimeout(() => {
+                    DeleteModal.style.display = "none";
+                }, 280);
             })
         })
     })

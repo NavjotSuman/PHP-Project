@@ -7,34 +7,76 @@
 /* *i will call it after show_myOrder Function it will get automatically callled */
 let delete_myOrder = () => {
     let deleteButton = document.getElementsByClassName("delete-img-dustbin__bg");
-    console.log(deleteButton);
+    // console.log(deleteButton);
 
     Array.from(deleteButton).forEach((value) => {
         value.addEventListener('click', () => {
-            // console.log(value.lastElementChild.getAttribute("data-ordernumber"));
-            let delete_orderNumber = value.lastElementChild.getAttribute("data-ordernumber");
 
-            // console.log(delete_orderNumber);
+            // let scrollX = window.scrollX;
+            let scrollY = (window.scrollY) + 190;
 
-            let passValues = {
-                "Delete_order": `${delete_orderNumber}`,
-            }
-            fetch("phpDatabase/cancel-order.php", {
-                method: "POST",
-                body: JSON.stringify(passValues),
-                headers: {
-                    "Content-type": "application/json",
+            let DeleteModal = document.querySelector(".deleteModalStartHere");
+            DeleteModal.style.top = `${scrollY}px`;
+            // DeleteModal.style.left = "37%";
+            DeleteModal.style.display = "block";
+            DeleteModal.style.animationName = "start-deleteConfirmModal";
+            DeleteModal.style.animationDuration = "400ms";
+
+            // fetching the Confirm Button of The Delete Order modal
+            let confirmDelete = document.querySelector(".confirm-btn");
+
+            // fetching the Cancel Button of The Delete Order modal
+            let CancelDelete = document.querySelector(".cancel-btn");
+
+            // on Click Confirm of the Deete order modal
+            confirmDelete.addEventListener('click', () => {
+
+                // console.log(value.lastElementChild.getAttribute("data-ordernumber"));
+                let delete_orderNumber = value.lastElementChild.getAttribute("data-ordernumber");
+
+                // console.log(delete_orderNumber);
+
+                let passValues = {
+                    "Delete_order": `${delete_orderNumber}`,
                 }
-            }).then((Response) => {
-                return Response.json();
-            }).then((value) => {
-                if (value.deleteOrder) {
-                    console.log("Your Order is Cancelled");
+                fetch("phpDatabase/cancel-order.php", {
+                    method: "POST",
+                    body: JSON.stringify(passValues),
+                    headers: {
+                        "Content-type": "application/json",
+                    }
+                }).then((Response) => {
+                    return Response.json();
+                }).then((value) => {
+                    if (value.deleteOrder) {
+                        console.log("Your Order is Cancelled");
+                        // hiding the Delete Confirm Modal
+                        DeleteModal.style.animationName = "hide-deleteConfirmModal";
+                        DeleteModal.style.animationDuration = "300ms";
 
-                    // calling the show order function for refresh orders without refresh the page
-                    show_myOrder();
-                }
+                        setTimeout(() => {
+                            DeleteModal.style.display = "none";
+                        }, 280);
+
+                        // calling the show order function for refresh orders without refresh the page
+                        show_myOrder();
+                    }
+                })
+
             })
+
+            // console.log(CancelDelete)
+
+            CancelDelete.addEventListener('click', () => {
+                // hiding the Delete Confirm Modal
+                DeleteModal.style.animationName = "hide-deleteConfirmModal";
+                DeleteModal.style.animationDuration = "300ms";
+
+                setTimeout(() => {
+                    DeleteModal.style.display = "none";
+                }, 280);
+            })
+
 
         })
     })
@@ -70,8 +112,10 @@ let show_myOrder = () => {
                 tbody.innerHTML += `<tr>
                                         <td class="border_left border_bottom">${itemName}</td>
                                         <td class="border_left border_bottom">${itemQuantity}</td>
-                                        <td class="border_left border_bottom">${price}</td>
-                                        <td class="border_left border_bottom">${status}</td>
+                                        <td class="border_left border_bottom">&#8377; ${price}</td>
+                                        <td class="border_left border_bottom">
+                                        <a class="order_status-btn" data-icons=""><img style="width: 1.7rem;filter: invert(1);" src="images/status-${status}.png" > ${status}</a>
+                                        </td>
                                         <td class="border_left border_bottom">${date}</td>
                                         <td class="border_left border_right border_bottom delete-Button" style="padding:0;padding-right: 7px;text-align: center;">
                                         <div class="delete-img-dustbin">

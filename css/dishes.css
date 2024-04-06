@@ -113,6 +113,7 @@ body {
 .dishes__menu-left .dish__img-left img {
     width: 100%;
     height: auto;
+    border-radius: 2px;
 }
 
 
@@ -318,6 +319,12 @@ body {
 
 .title-row a img {
     width: 1rem;
+    transition: all 270ms ease;
+    cursor: pointer;
+}
+
+.title-row a img:hover {
+    filter: invert(15%) sepia(84%) saturate(3184%) hue-rotate(355deg) brightness(104%) contrast(97%) !important;
 }
 
 .dish_price-quantity {
@@ -329,4 +336,70 @@ body {
     font-size: 1rem;
     color: #55595c;
     margin-bottom: .9rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:1024px) {
+    .dish_menu-cart .container {
+        width: 94%;
+    }
+
+    .dish_menu-cart .container {
+        display: flex;
+        flex-direction: column;
+        gap: 2.2rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:600px) {
+    .dish_menu-cart-right__all-dishes article {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }

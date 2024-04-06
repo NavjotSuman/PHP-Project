@@ -36,9 +36,9 @@ session_start();
         <div class="restaurant_step_navbar">
             <div class="container">
                 <ul class="row_links">
-                    <li><span class="step_counting">1</span><a href="">Choose Restaurant</a></li>
-                    <li><span class="step_counting">2</span><a href="">Pick your favourite food</a></li>
-                    <li><span class="step_counting">3</span><a href="">Order and Pay</a></li>
+                    <li><span class="step_counting step_counting-selected">1</span><a href="restaurant.php">Choose Restaurant</a></li>
+                    <li><span class="step_counting">2</span><a>Pick your favourite food</a></li>
+                    <li><span class="step_counting">3</span><a>Order and Pay</a></li>
                 </ul>
             </div>
         </div>
@@ -54,12 +54,15 @@ session_start();
         </section>
 
         <section class="restaurants-page">
-            <div class="container">
-                <div class="res_all">
+
+            <div class="res_all">
+                <div class="container">
                     <div class="res_all__heading">
                         <h1>Choose One Restaurant</h1>
                         <p>Every Restaurant is Best</p>
                     </div>
+                </div>
+                <div class="res_container">
                     <?php
                     $result = mysqli_query($conn, "SELECT * FROM `restaurant`");
                     while ($row = mysqli_fetch_assoc($result)) {
@@ -68,24 +71,24 @@ session_start();
                         echo '<article>
                             <div class="res_details">
                                 <div class="res_img">
-                                    <img src="admin/Res_img/'.$row['image'].'" alt="" srcset="">
+                                    <img src="admin/Res_img/' . $row['image'] . '" alt="" srcset="">
                                 </div>
                                 <div class="res_info">
-                                    <h2>'.$row['title'].'</h2>
-                                    <p>'.$row['address'].'</p>
+                                    <h2>' . $row['title'] . '</h2>
+                                    <p>' . $row['address'] . '</p>
                                 </div>
                             </div>
     
                             <div class="hotel_view-btn">
-                                <a href="dishes.php?Res_id='.$row['rs_id'].'" class="btn view_menu-btn">View menu</a>
+                                <a href="dishes.php?Res_id=' . $row['rs_id'] . '" class="btn view_menu-btn">View menu</a>
                             </div>
                         </article>';
-
                     }
                     ?>
+                </div>
 
 
-                    <!-- <article>
+                <!-- <article>
                         <div class="res_details">
                             <div class="res_img">
                                 <img src="admin/Res_img/606d720b5fc71.jpg" alt="" srcset="">
@@ -100,9 +103,9 @@ session_start();
                             <a href="" class="btn view_menu-btn">View menu</a>
                         </div>
                     </article> -->
-                </div>
             </div>
-        </section>
+    </div>
+    </section>
     </div>
 
 

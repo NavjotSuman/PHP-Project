@@ -16,3 +16,27 @@ Array.from(aside_arrow).forEach((value) => {
         }
     })
 })
+
+
+
+
+// =============================================================================== logout Button js ===============================================================================================
+const logout_icon = document.querySelector(".logout-profile").firstElementChild;
+const navMenu = document.querySelector(".nav__menu");
+logout_icon.addEventListener('click', () => {
+    if ((navMenu.getAttribute("data-start") == "true")) {
+        navMenu.style.animationName = "navbarDisable"
+        navMenu.style.animationDuration = "500ms"
+        navMenu.removeAttribute("data-start")
+        setTimeout(() => {
+            navMenu.style.display = "none";
+        }, 500);
+    }
+    else {
+        navMenu.style.display = "block";
+        navMenu.style.animationName = "navbarAnimation"
+        navMenu.style.animationDuration = "500ms"
+        navMenu.setAttribute("data-start", "true");
+    }
+})
+

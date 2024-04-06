@@ -2,6 +2,9 @@
 <html lang="en">
 <?php
 session_start();
+if (!isset($_SESSION['admin_id'])) {
+    header("location: index.php");
+}
 require '../connection/_dbconnect.php';
 
 ?>
@@ -165,13 +168,36 @@ require '../connection/_dbconnect.php';
     </div>
 
 
+
+    <!-- modal for confirm the order for delete the order  -->
+    <div class="deleteModalStartHere">
+        <div class="delete_confirm-modal">
+            <div class="delete_confirm-modal_container">
+                <div class="delete_modal-row1">
+                    <h2>CATEGORY DELETE</h2>
+                </div>
+                <div class="delete_modal-row2">
+                    <P>Are You Sure??</P>
+                </div>
+                <div class="delete_modal-row3">
+                    <a class="btn confirm-btn">CONFIRM</a>
+                    <a class="btn cancel-btn">CANCEL</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
     <div class="modal-update_category">
         <div class="upper-box">
             <div class="add-display-category">
                 <div class="add_restaurant-category">
                     <div class="add_restaurant-category-container">
                         <div class="add_restaurant_category-heading">
-                            <h2>Add Restaurant Category</h2>
+                            <h2>Update Restaurant Category</h2>
                         </div>
                         <hr>
                     </div>
@@ -188,7 +214,7 @@ require '../connection/_dbconnect.php';
                                 <input type="submit" value="UPDATE" name="update">
                             </div>
                             <div class="reset_button">
-                                <input type="reset" value="CANCLE">
+                                <input type="reset" value="CLEAR">
                             </div>
                             <div class="modal-close">
                                 <a>CLOSE</a>

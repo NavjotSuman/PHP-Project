@@ -66,7 +66,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <title>foody - Navjot Project</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/registration.css">
+    <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
 
+        /* input[type=number] {
+            -moz-appearance: textfield;
+        } */
+    </style>
 </head>
 
 <body>
@@ -142,7 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
                         <div class="address">
                             <label for="delivery_address">Delivery Address</label><br>
-                            <textarea rows="4" name="delivery_address" id="delivery_address" required class="data-input"></textarea>
+                            <textarea rows="4" name="delivery_address" id="delivery_address" required class="data-input" style="resize: none;"></textarea>
                         </div>
                         <div class="form_register_btn">
                             <button class="btn-register btn">Register Now</button>

@@ -6,28 +6,71 @@ let onDeleteClick = () => {
 
     Array.from(delete_button).forEach((value) => {
         value.addEventListener('click', () => {
-            let delete_Id = value.getAttribute("data-order_id");
-            // console.log(delete_Id);
-            let fetchValues = {
-                "uid": `${delete_Id}`,
-            }
 
-            fetch("operations-file/all_orders-delete.php", {
-                method: "POST",
-                body: JSON.stringify(fetchValues),
-                headers: {
-                    "Content-type": "application/json",
+
+
+            // let scrollX = window.scrollX;
+            let scrollY = (window.scrollY) + 190;
+
+            let DeleteModal = document.querySelector(".deleteModalStartHere");
+            DeleteModal.style.top = `${scrollY}px`;
+            // DeleteModal.style.left = "37%";
+            DeleteModal.style.display = "block";
+            DeleteModal.style.animationName = "start-deleteConfirmModal";
+            DeleteModal.style.animationDuration = "400ms";
+
+            // fetching the Confirm Button of The Delete Order modal
+            let confirmDelete = document.querySelector(".confirm-btn");
+
+            // fetching the Cancel Button of The Delete Order modal
+            let CancelDelete = document.querySelector(".cancel-btn");
+
+            // on Click Confirm of the Deete order modal
+            confirmDelete.addEventListener('click', () => {
+
+
+                let delete_Id = value.getAttribute("data-order_id");
+                // console.log(delete_Id);
+                let fetchValues = {
+                    "uid": `${delete_Id}`,
                 }
-            }).then((Response) => {
-                return (Response.json());
-            }).then((result) => {
-                if (result.deleted == 'success') {
-                    console.log(`Order Deleted Successfully`);
-                    show_orders();
-                }
-            }).catch((error) => {
-                console.log("error is ");
+
+                fetch("operations-file/all_orders-delete.php", {
+                    method: "POST",
+                    body: JSON.stringify(fetchValues),
+                    headers: {
+                        "Content-type": "application/json",
+                    }
+                }).then((Response) => {
+                    return (Response.json());
+                }).then((result) => {
+                    if (result.deleted == 'success') {
+                        console.log(`Order Deleted Successfully`);
+                        // hiding the Delete Confirm Modal
+                        DeleteModal.style.animationName = "hide-deleteConfirmModal";
+                        DeleteModal.style.animationDuration = "300ms";
+
+                        setTimeout(() => {
+                            DeleteModal.style.display = "none";
+                            show_orders();
+                        }, 280);
+                    }
+                }).catch((error) => {
+                    console.log("error is ");
+                })
             })
+
+
+            CancelDelete.addEventListener('click', () => {
+                // hiding the Delete Confirm Modal
+                DeleteModal.style.animationName = "hide-deleteConfirmModal";
+                DeleteModal.style.animationDuration = "300ms";
+
+                setTimeout(() => {
+                    DeleteModal.style.display = "none";
+                }, 280);
+            })
+
         })
     })
 
@@ -41,10 +84,25 @@ let onEditClick = () => {
 
     Array.from(edit_button).forEach((value) => {
         value.addEventListener('click', () => {
+
+            let scrollY = (window.scrollY);
+
             // making the modal visible to the admin
             let open_modal = document.querySelector(".update_order-modal");
+            // update_order-modal
+            document.querySelector(".update_order-modal").style.top = `${scrollY}px`;
+
             open_modal.style.display = "block";
 
+
+            // exiting the modal 
+            let close_modal = document.querySelector(".order-modal-close");
+            close_modal.addEventListener('click', () => {
+                open_modal.style.display = "none";
+                show_orders();
+            })
+
+            // window.scroll(0, 0)
 
             // using the fetch for display the user_order details into the modal
             let orderId = value.getAttribute("data-order_id");
@@ -103,12 +161,7 @@ let onEditClick = () => {
 
 
 
-            // exiting the modal 
-            let close_modal = document.querySelector(".order-modal-close");
-            close_modal.addEventListener('click', () => {
-                open_modal.style.display = "none";
-                show_orders();
-            })
+
 
 
 
@@ -121,11 +174,11 @@ let onEditClick = () => {
 
 // ============================ show all user accounts to admin panel ====================================== 
 let show_orders = () => {
-    orderRow.innerHTML = "";
     fetch("operations-file/all_orders-fetch.php")
         .then((Response) => {
             return Response.json();
         }).then((array) => {
+            orderRow.innerHTML = "";
             // to print the array return in json form
             // console.log(array);
             for (let i = 0; i < array.length; i++) {
@@ -142,7 +195,7 @@ let show_orders = () => {
                                             <td>${username}</td>
                                             <td>${title}</td>
                                             <td>${quantity}</td>
-                                            <td>${price}</td>
+                                            <td>&#8377;${price}</td>
                                             <td>${address}</td>
                                             <td>${status}</td>
                                             <td>${date}</td>
