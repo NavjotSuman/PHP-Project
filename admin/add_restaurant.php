@@ -79,52 +79,21 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['submit'])) {
     <!-- dashboard main started here -->
     <div class="dashboard-main">
         <header>
-            <aside>
-                <div class="aside__container">
-                    <div class="aside__container-top">
-                        <ul class="aside-dashboard">
-                            <h4>HOME</h4>
-                            <li class="flex-aside-li"><a href="dashboard.php"><img class="aside-img" src="images/icons/gauge-high-solid.png" alt="" srcset=""><span>Dashboard</span></a></li>
-                        </ul>
-                    </div>
-
-
-                    <div class="aside__container-bottom">
-                        <div class="admin-controler-links">
-                            <ul class="aside-admin">
-                                <h4>LOG</h4>
-                                <li class="flex-aside-li list-bg"><a href="all_users.php" class="flex-anchor"><img class="aside-img" src="images/icons/user-solid.png" alt="" srcset=""><span>Users</span></a></li>
-                                <li class="flex-aside-li list-bg hidden-off">
-                                    <a class="flex-anchor"><img class="aside-img" src="images/icons/box-archive-solid.png" alt="" srcset=""><span>Restaurant</span><img src="images/icons/greater-than-solid.png" class="arraw-img" alt="" srcset="">
-                                    </a>
-                                    <ul hidden class="hidden-div">
-                                        <li><a href="all_restaurant.php"><span>All Restaurant</span></a></li>
-                                        <li><a href="all_restaurant-add_category.php"><span>Add Category</span></a></li>
-                                        <li><a href="add_restaurant.php"><span>Add Restaurant</span></a></li>
-                                    </ul>
-                                </li>
-                                <li class="flex-aside-li list-bg hidden-off">
-                                    <a class="flex-anchor"><img class="aside-img " src="images/icons/utensils-solid.png" alt="" srcset=""><span>Menu</span><img src="images/icons/greater-than-solid.png" class="arraw-img" alt="" srcset=""></a>
-                                    <ul hidden class="hidden-div">
-                                        <li><a href="all_menu.php"><span>All Menus</span></a></li>
-                                        <li><a href="add_menu.php"><span>Add Menus</span></a></li>
-                                    </ul>
-                                </li>
-                                <li class="flex-aside-li list-bg"><a href="all_orders.php" class="flex-anchor"><img class="aside-img" src="images/icons/cart-shopping-solid.png" alt="" srcset=""><span>Orders</span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </aside>
+            <?php
+            include 'include/_mainAside.php';
+            ?>
 
 
             <!--  ================================================================================ right side of the dashboard ================================================================================= -->
             <div class="main-right-display">
+                <?php
+                include 'include/_marquee_info.php';
+                ?>
 
-                <div class="marqueetag">
-                    <!-- write the marquee here -->
+                <!-- <div class="marqueetag">
+                    write the marquee here
                     <marquee behavior="" direction="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi eos sed aliquid culpa distinctio nostrum sequi a quas. Harum omnis at nobis amet deserunt sapiente totam provident laudantium officiis illum?</marquee>
-                </div>
+                </div> -->
 
                 <div class="update_restaurant-modal">
                     <div class="modal__container">

@@ -108,14 +108,20 @@ if (!isset($_SESSION['admin_id'])) {
                 // It calls the get method on the urlParams object.
                 let oid = urlParams.get("form_id");
 
+                let Cancelled_order_reason = "";
+
+                if (order_status == "Cancelled") {
+                    Cancelled_order_reason = document.getElementById("order-textarea").value;
+                }
 
                 let fetchValues = {
                     "oid": `${oid}`,
                     "status": `${order_status}`,
+                    "order_reason":`${Cancelled_order_reason}`,
                 }
 
-                console.log(order_status)
-                console.log(oid)
+                // console.log(order_status)
+                // console.log(oid)
                 fetch("operations-file/all_orders-status-update.php", {
                     method: "POST",
                     body: JSON.stringify(fetchValues),

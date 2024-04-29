@@ -40,3 +40,13 @@ logout_icon.addEventListener('click', () => {
     }
 })
 
+
+
+// marquee tag buttons
+let marqueeTag = document.getElementById("marquee_info");
+marqueeTag.addEventListener('mouseover', () => {
+    marqueeTag.stop();
+})
+marqueeTag.addEventListener('mouseleave', () => {
+    marqueeTag.start();
+})
