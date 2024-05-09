@@ -89,6 +89,25 @@ session_start();
         </div>
 
 
+        <!-- modal for confirm the order for Cancel the order  -->
+        <div class="cancelModalStartHere">
+            <div class="cancel_confirm-modal">
+                <div class="cancel_confirm-modal_container">
+                    <div class="cancel_modal-row1">
+                        <h2>Cancel Order??</h2>
+                    </div>
+                    <div class="cancel_modal-row2">
+                        <textarea name="cancel_reason" id="cancel_reason" rows="5" placeholder="Cancel Reason!!"></textarea>
+                    </div>
+                    <div class="cancel_modal-row3">
+                        <a class="btn cancel-confirm-btn">CONFIRM</a>
+                        <a class="btn cancel-cancel-btn">CANCEL</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
         <!-- displaying the user orders in the this section  -->
         <section class="my-orders-page">

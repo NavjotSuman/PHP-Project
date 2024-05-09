@@ -50,8 +50,8 @@ require '../connection/_dbconnect.php';
                 <div class="admin__dashboard">
                     <div class="admin__dashboard-container">
 
-                        <div class="dashboard__header">
-                            <h4>All Order</h4>
+                        <div class="dashboard__header" style="display: flex; align-items: center; justify-content: space-between;">
+                            <h4>All Order</h4> <a href="fetres.php" id="search_button">SEARCH</a>
                         </div>
 
 

@@ -28,7 +28,7 @@
                     <h5 class="footer__heading">Address</h5>
                     <p>Jalandhar, Punjab, India.</p>
                     <h5 class="footer__number">Phone: +9198000-00062</a></h5>
-                    <span style="color: white; font-weight:300; ">Email: 69navjot@gmail.com</span>
+                    <span style="color: white; font-weight:300; ">Email: navjotsumandev@gmail.com</span>
                 </div>
                 <div class="cadditional-info margin-top">
                     <h5 class="footer__heading">Addition informations</h5>

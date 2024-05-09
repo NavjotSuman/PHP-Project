@@ -14,7 +14,8 @@ $oid = $decode['oid'];
 $status = $decode['status'];
 $order_reason = $decode['order_reason'];
 
-$sql = "UPDATE `users_orders` SET `status` = '$status', `can_reason`='$order_reason' WHERE `users_orders`.`o_id` = $oid;";
+
+$sql = "UPDATE `users_orders` SET `status` = '$status', `can_reason`='$order_reason' WHERE `users_orders`.`o_id` = $oid";
 $result = mysqli_query($conn, $sql);
 
 

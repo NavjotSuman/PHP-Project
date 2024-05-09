@@ -2,9 +2,9 @@
 <html lang="en">
 <?php
 session_start();
-// if (!isset($_SESSION['admin_id'])) {
-//     header("location: index.php");
-// }
+if (!isset($_SESSION['admin_id'])) {
+    header("location: index.php");
+}
 $search_details = false;
 require '../connection/_dbconnect.php';
 
@@ -579,7 +579,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['submit'])) {
 
     <!-- modal for display the order details to the user -->
     <div class="update_order-modal">
-        <div class="modal__container">
+        <div class="modal__container" style="background-color: transparent;">
             <div class="modal-start">
                 <div class="modal-heading">
                     <h2>UPDATE ORDER</h2>
