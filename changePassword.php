@@ -29,7 +29,7 @@ if (!isset($_SESSION['user_id'])) {
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="border-bottom: 1px solid grey; box-shadow: 0 0 5px #7b6464f5; z-index:20;">
-        <a href="userProfile.php" class="navbar-brand" style="margin-left:1.4rem;">
+        <a href="index.php" class="navbar-brand" style="margin-left:1.4rem;">
             <h2 style="text-shadow: 0 0 10px #1b1919;">User Profile</h2>
         </a>
     </nav>

@@ -64,7 +64,7 @@ require '../connection/_dbconnect.php';
                 <div class="form">
                     <form action="" method="post">
                         <input type="text" name="username" placeholder="Username" required>
-                        <input type="text" name="password" placeholder="Password" required>
+                        <input type="password" name="password" placeholder="Password" required>
                         <button type="submit" class="login-btn">Login</button>
                     </form>
                 </div>

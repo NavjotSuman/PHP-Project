@@ -199,6 +199,9 @@ Array.from(addCart).forEach((value) => {
 
         // Selected Dish Quantity
         dishQuantity = value.parentElement.firstElementChild.lastElementChild.firstElementChild.value;
+        if (dishQuantity < 1) {
+            dishQuantity = 1;
+        }
         value.parentElement.firstElementChild.lastElementChild.firstElementChild.value = "1";
 
         // fetching the Dishid of the cart
