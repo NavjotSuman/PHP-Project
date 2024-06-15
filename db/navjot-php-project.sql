@@ -175,9 +175,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`u_id`, `username`, `f_name`, `l_name`, `email`, `phone`, `password`, `address`, `status`, `image`, `date`) VALUES
-(1, 'navjot', 'Navjot', 'Suman', 'navjotsuman15@gmail.com', '1112222333', '12345678', 'Sangha Jagir, Punjab, 144043', 1, '1.jpg', '2024-04-06 12:19:41'),
-(2, 'vishal', 'Vishal', 'Suman', 'vishal@gmail.com', '1122334455', '12345678', 'Nawan Pind Shonkia', 1, '2.jpg', '2024-04-06 12:21:01'),
-(3, 'manraj', 'Manraj', 'Singh', 'manraj@gmail.com', '1122334455', '12345678', 'Kang Sahib Rai', 1, '3.jpg', '2024-04-06 12:23:38');
+(1, 'navjot', 'Navjot', 'Suman', 'navjotsuman15@gmail.com', '1112222333', '12345678', 'vill name, Punjab, 999999', 1, '1.jpg', '2024-04-06 12:19:41'),
+(2, 'vishal', 'Vishal', 'Suman', 'vishal@gmail.com', '1122334455', '12345678', 'vill name', 1, '2.jpg', '2024-04-06 12:21:01'),
+(3, 'manraj', 'Manraj', 'Singh', 'manraj@gmail.com', '1122334455', '12345678', 'villname', 1, '3.jpg', '2024-04-06 12:23:38');
 
 -- --------------------------------------------------------
 
