@@ -22,6 +22,9 @@ if (isset($_SESSION['image'])) {
             text-decoration: underline;
         }
     </style>
+    <script>
+        alert("Welcome to a sample e-commerce website! Feel free to browse, but please note that transactions are not enabled.");
+    </script>
 </head>
 
 <body>
